@@ -7,12 +7,6 @@ package uno;
 public abstract class Strategy 
 {
     public abstract Card playCard();
-    
-  
-    public void drawCard()
-    {
-        //call Decks DrawCard
-    }
-    
+        
    
 }
