@@ -77,6 +77,14 @@ public class Deck {
     nextCardIndex = 0;
   }
   
+  // Overloaded constructor to take face up cards and re-shuffle them as the new
+  // deck
+  public Deck(ArrayList<Card> faceUpPile)
+  {
+      theCards = faceUpPile;
+      Collections.shuffle(theCards);
+  }
+  
   // Other methods go here.
   public boolean hasNext()
   {

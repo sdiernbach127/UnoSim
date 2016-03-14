@@ -30,5 +30,9 @@ public class Table
     {
         faceUpCards.add(card);
     }
+    public Card topUp()
+    {
+        return faceUpCards.get(faceUpCards.size()-1);
+    }
     
 }

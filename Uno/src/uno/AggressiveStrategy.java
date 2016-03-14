@@ -17,6 +17,12 @@ public class AggressiveStrategy extends Strategy
     
     public Card playCard()
     {
+        //wild draw 4
+        //draw two
+        //skip
+        //reverse
+        //anything else
+        
         Card toPlay = hand.get(0);
         hand.remove(0);
         return toPlay;
