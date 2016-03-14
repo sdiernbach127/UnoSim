@@ -14,22 +14,27 @@ import java.util.Collections;
 public class Game {
     int playerturn = 1;
     public Game (Strategy strat1, Strategy strat2){
-        Deck deck= new Deck("UnoDeck.dat");
-        
         /*
         Set Up
         strat1 draw 7, strat2 draw 7. 
         table show 1 from deck
-        
         */
+        Deck deck= new Deck("UnoDeck.dat");
+        Table table = new Table(deck);
+        for(int start = 0; start <= 7; start ++){
+            strat1.takeCard(table.drawCard());
+            strat2.takeCard(table.drawCard());
+        }
+        table.addToFaceUp(table.drawCard());
+        
         
         
         //While game is not over
+        while(GameOver() != true)
         if (playerturn ==1){
             Card toplay = strat1.playCard();
             if(toplay.getValue() == 'd'){
-                
-            player
+                Draw2Card(strat2);
         }
         if playerturn == 2
         strat2.playCard()
@@ -44,13 +49,15 @@ public class Game {
         else
             return false;
     }
-    public  Draw2Card(Strategy strat){
-        strat.drawCard();
-        strat.drawCard();
+    public static void Draw2Card(Strategy strat){
+        strat.//drawCard from deck
+        strat.//drawCard from deck
     } 
     
     public void Draw4Card(Strategy strat){
-        strat.drawCard();
-        strat.drawCard();
+        strat.//drawCard from deck
+        strat.//drawCard from deck
+        strat.//drawCard from deck
+        strat.//drawCard from deck
     } 
 }
