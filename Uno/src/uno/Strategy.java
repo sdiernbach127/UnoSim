@@ -4,7 +4,15 @@ package uno;
 // then to run the game we can pass a strategy to the game simulator
 // and we know they all will be strategies and have this method
 
-public interface Strategy 
+public abstract class Strategy 
 {
-    public void drawCard();
+    public abstract Card playCard();
+    
+  
+    public void drawCard()
+    {
+        //call Decks DrawCard
+    }
+    
+   
 }
