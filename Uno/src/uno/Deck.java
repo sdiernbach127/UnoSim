@@ -89,8 +89,7 @@ public class Deck {
       return true;
     }
   }
-  public Card 
-        getNext()
+  public Card getNext()
   {
     int returnCard=0;
     if (theCards.size()==nextCardIndex)
@@ -105,9 +104,16 @@ public class Deck {
       
     }
   }
+  
+  public ArrayList Shuffle()
+  {
+      Collections.shuffle(theCards);
+      return theCards;
+  }
   public static void main(String[] args)
   {
     Deck d= new Deck("UnoDeck.dat");
+    d.Shuffle();
     while (d.hasNext())
     {
       Card c= d.getNext();

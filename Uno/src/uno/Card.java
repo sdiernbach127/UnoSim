@@ -61,19 +61,19 @@ public class Card
         if (val <=9)
             valSt = Integer.toString(val);        
         else if (val == 10)
-            valSt = "Skip";
+            valSt = "S";
         else if (val == 11)
-            valSt = "Reverse";
+            valSt = "R";
         else if (val == 12)
-            valSt = "Draw 2";
+            valSt = "d";
     }
     if (clr==5)
     {
-      clrSt= "Wild";
+      clrSt= "W";
       if (val == 0)
-          valSt = "normal";
+          valSt = "N";
       if (val == 1)
-          valSt = "Draw 4";
+          valSt = "D";
     }
     
     String newstring= (clrSt + " " + valSt);
