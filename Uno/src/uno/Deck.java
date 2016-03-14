@@ -113,6 +113,7 @@ public class Deck {
       Card c= d.getNext();
       System.out.println(c);
     }
+    System.out.print(d.theCards.size());
   }    
     
 }

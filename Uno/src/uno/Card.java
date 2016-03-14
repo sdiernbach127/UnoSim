@@ -16,6 +16,7 @@
  * 10 - skip
  * 11 - reverse
  * 12 - draw 2
+ * if card is wild then 0 is no draw, and 1 is draw 4 wild
  */
 
 // There are 4 colors Possibly 5 if you count the wilds as their own color
@@ -47,7 +48,25 @@ public class Card
     String clrSt="O";
     String valSt="O";
    
-    
+    if (clr != 5){
+        if (clr==1)
+          clrSt= "Y";
+        else if (clr==2)
+          clrSt= "R";
+        else if (clr==3)
+          clrSt= "B";        
+        else if (clr==4)
+          clrSt= "G";
+        
+        if (val <=9)
+            valSt = Integer.toString(val);        
+        else if (val == 10)
+            valSt = "Skip";
+        else if (val == 11)
+            valSt = "Reverse";
+        else if (val == 12)
+            valSt = "Draw 2";
+    }
     if (clr==5)
     {
       clrSt= "Wild";
@@ -56,24 +75,8 @@ public class Card
       if (val == 1)
           valSt = "Draw 4";
     }
-    else if (clr==1)
-    {
-      clrSt= "Y";
-    }
-    else if (clr==2)
-    {
-      clrSt= "R";
-    }
-     else if (clr==3)
-    {
-      clrSt= "B";
-    }
-     else if (clr==4)
-    {
-      clrSt= "G";
-    }
     
-    String newstring= (qnt + clrSt+ shdSt + shpSt);
+    String newstring= (clrSt + " " + valSt);
     return (newstring);
   }
 }
