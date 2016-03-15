@@ -34,7 +34,7 @@ public class Game {
             if (playerturn == 1){
                 //if (player cannot play a card)
                        //draw card 
-                Card toplay = strat1.playCard();
+                Card toplay = strat1.playCard(table.topUp());
                 
                 //check to make sure card is playable. add for wild cards
                 if (toplay.getColor() == 'W'){
@@ -74,7 +74,7 @@ public class Game {
             if (playerturn == 2){
                 //if (player cannot play a card)
                        //draw card 
-                Card toplay = strat2.playCard();
+                Card toplay = strat2.playCard(table.topUp());
                 
                 //check to make sure card is playable. add for wild cards
                 if (toplay.getColor() == 'W'){

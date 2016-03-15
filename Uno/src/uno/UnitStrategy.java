@@ -15,7 +15,7 @@ public class UnitStrategy extends Strategy
 {
     ArrayList<Card> hand = new ArrayList<>();
     
-    public Card playCard()
+    public Card playCard(Card faceUpCard)
     {
         Card toPlay = hand.get(0);
         hand.remove(0);

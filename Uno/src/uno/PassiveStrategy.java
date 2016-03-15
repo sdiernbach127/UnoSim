@@ -15,7 +15,7 @@ public class PassiveStrategy extends Strategy
 {
     ArrayList<Card> hand = new ArrayList<>();
     
-    public Card playCard()
+    public Card playCard(Card faceUpCard)
     {
         int cardIndex = determineLowestCard();
         Card retCard = hand.get(cardIndex);

@@ -16,7 +16,7 @@ public class RandomStrategy extends Strategy
 {
     ArrayList<Card> hand = new ArrayList<>();
     
-    public Card playCard()
+    public Card playCard(Card faceUpCard)
     {
         int cardIndex = 0;
         Random rand = new Random();

@@ -15,7 +15,7 @@ public class AggressiveStrategy extends Strategy
 {
     ArrayList<Card> hand = new ArrayList<>();
     
-    public Card playCard()
+    public Card playCard(Card faceUpCard)
     {
         //wild draw 4
         //draw two
