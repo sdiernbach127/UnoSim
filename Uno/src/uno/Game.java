@@ -9,6 +9,8 @@ package uno;
  *
  * @author Spencer Diernbach
  */
+
+//really messy, would like to get function so to not repeating code just for other player. 
 public class Game {
     int playerturn = 1;
     Deck deck= new Deck("UnoDeck.dat");
@@ -30,6 +32,8 @@ public class Game {
         //While game is not over
         while(GameOver(strat1, strat2) != true){
             if (playerturn == 1){
+                //if (player cannot play a card)
+                       //draw card 
                 Card toplay = strat1.playCard();
                 
                 //check to make sure card is playable. add for wild cards
@@ -51,14 +55,51 @@ public class Game {
                     playerturn = 1;                
                 } 
                 
-                if (toplay.getValue() == 'S')
+                else if (toplay.getValue() == 'S')
                     playerturn = 1;
                 
-                if (toplay.getValue() == 'R')
+                else if (toplay.getValue() == 'R')
                     playerturn = 1;
                 
+                else
+                    playerturn = 2;
+            }
+            
+            
+            if (playerturn == 2){
+                //if (player cannot play a card)
+                       //draw card 
+                Card toplay = strat2.playCard();
                 
-            }   
+                //check to make sure card is playable. add for wild cards
+                if (toplay.getColor() == 'W'){
+                    //we need to figure out how to play wilds
+                    if (toplay.getValue() == 'D'){
+                        Draw4Card(strat1);
+                        playerturn = 2;
+                    }
+                }
+                
+                if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
+                    System.out.print("Exception: card doesn't match");
+                table.addToFaceUp(toplay);
+                
+                if (toplay.getValue() == 'd'){
+                    Draw2Card(strat1);
+                    //current rule same player
+                    playerturn = 2;                
+                } 
+                
+                else if (toplay.getValue() == 'S')
+                    playerturn = 2;
+                
+                else if (toplay.getValue() == 'R')
+                    playerturn = 2;
+                
+                else
+                    playerturn = 1; //next turn
+                
+            }
         }
     }
     
