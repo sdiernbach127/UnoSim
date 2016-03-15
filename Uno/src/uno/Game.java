@@ -56,10 +56,12 @@ public class Game {
                 else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
                     System.out.println("Exception: card doesn't match: " + toplay.getColor()+ " " + toplay.getValue() + " "+ table.topUp().getColor()+ " "+ table.topUp().getValue()); // Not sure but won't this fire with all wild cards because the color and value won't match?
                     //do we want the above to be a true exception thrown or keep it a print so we know it happened?
-                table.addToFaceUp(toplay); 
+                
                 
                 //can these be played when the colors don't match?
-                System.out.println("Player 1: " + toplay.getValue());
+                System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
+                System.out.println("Player 1 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
+                
                 if (toplay.getValue() == 12){
                     Draw2Card(strat2);
                     //current rule same player
@@ -74,6 +76,8 @@ public class Game {
                 
                 else
                     playerturn = 2;
+                
+                table.addToFaceUp(toplay);
             }
             
             
@@ -96,9 +100,10 @@ public class Game {
                 
                  else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
                     System.out.print("Exception: card doesn't match");
-                table.addToFaceUp(toplay);
                 
-                System.out.println("Player 2: " + toplay.getValue());
+                System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
+                System.out.println("Player 2 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
+                
                 if (toplay.getValue() == 12){
                     Draw2Card(strat1);
                     //current rule same player
@@ -113,6 +118,8 @@ public class Game {
                 
                 else
                     playerturn = 1; //next turn
+                
+                table.addToFaceUp(toplay);
                 
             }
         }
