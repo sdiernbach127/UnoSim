@@ -22,6 +22,7 @@ public class AggressiveStrategy extends Strategy
         //skip
         //reverse
         //anything else
+        
         int cardIndex = determineMax();
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);

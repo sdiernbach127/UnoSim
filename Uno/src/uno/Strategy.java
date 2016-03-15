@@ -11,3 +11,4 @@ public abstract class Strategy
    public abstract int getHandSize();
    
 }
+// strategies must determine what color to play after playing a wild card

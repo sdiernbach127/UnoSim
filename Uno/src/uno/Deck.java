@@ -118,16 +118,6 @@ public class Deck {
       Collections.shuffle(theCards);
       return theCards;
   }
-  public static void main(String[] args)
-  {
-    Deck d= new Deck("UnoDeck.dat");
-    d.Shuffle();
-    while (d.hasNext())
-    {
-      Card c= d.getNext();
-      System.out.println(c);
-    }
-    System.out.print(d.theCards.size());
-  }    
+
     
 }

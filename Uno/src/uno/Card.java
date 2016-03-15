@@ -46,34 +46,34 @@ public class Card
     public String toString()
   {
     String clrSt="O";
-    String valSt="O";
+    String valSt="O"; 
    
     if (clr != 5){
         if (clr==1)
-          clrSt= "Y";
+          clrSt= "Y"; // yellow
         else if (clr==2)
-          clrSt= "R";
+          clrSt= "R"; //red
         else if (clr==3)
-          clrSt= "B";        
+          clrSt= "B"; //blue   
         else if (clr==4)
-          clrSt= "G";
+          clrSt= "G"; //green 
         
         if (val <=9)
             valSt = Integer.toString(val);        
         else if (val == 10)
-            valSt = "S";
+            valSt = "S"; // skip
         else if (val == 11)
-            valSt = "R";
+            valSt = "R"; // reverse
         else if (val == 12)
-            valSt = "d";
+            valSt = "d"; //draw 2
     }
     if (clr==5)
     {
-      clrSt= "W";
+      clrSt= "W"; // wild
       if (val == 0)
-          valSt = "N";
+          valSt = "N"; // normal wild
       if (val == 1)
-          valSt = "D";
+          valSt = "D"; // draw four
     }
     
     String newstring= (clrSt + " " + valSt);
