@@ -45,10 +45,15 @@ public class Game {
                     }
                 }
                 
-                if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
-                    System.out.print("Exception: card doesn't match");
-                table.addToFaceUp(toplay);
+                //if wild card: behavior
                 
+                //then this next if is an elif so it is part of the whole if block?
+                if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
+                    System.out.print("Exception: card doesn't match"); // Not sure but won't this fire with all wild cards because the color and value won't match?
+                    //do we want the above to be a true exception thrown or keep it a print so we know it happened?
+                table.addToFaceUp(toplay); 
+                
+                //can these be played when the colors don't match?
                 if (toplay.getValue() == 'd'){
                     Draw2Card(strat2);
                     //current rule same player
