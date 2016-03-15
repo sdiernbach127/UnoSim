@@ -42,9 +42,9 @@ public class Game {
                 }
                 
                 //check to make sure card is playable. add for wild cards
-                else if (toplay.getColor() == 'W'){
+                else if (toplay.getColor() == 5){
                     //we need to figure out how to play wilds
-                    if (toplay.getValue() == 'D'){
+                    if (toplay.getValue() == 1){
                         Draw4Card(strat2);
                         playerturn = 1;
                     }
@@ -53,22 +53,23 @@ public class Game {
                 //if wild card: behavior
                 
                 //then this next if is an elif so it is part of the whole if block?
-                else if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
-                    System.out.print("Exception: card doesn't match"); // Not sure but won't this fire with all wild cards because the color and value won't match?
+                else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
+                    System.out.println("Exception: card doesn't match: " + toplay.getColor()+ " " + toplay.getValue() + " "+ table.topUp().getColor()+ " "+ table.topUp().getValue()); // Not sure but won't this fire with all wild cards because the color and value won't match?
                     //do we want the above to be a true exception thrown or keep it a print so we know it happened?
                 table.addToFaceUp(toplay); 
                 
                 //can these be played when the colors don't match?
-                if (toplay.getValue() == 'd'){
+                System.out.println("Player 1: " + toplay.getValue());
+                if (toplay.getValue() == 12){
                     Draw2Card(strat2);
                     //current rule same player
                     playerturn = 1;                
                 } 
                 
-                else if (toplay.getValue() == 'S')
+                else if (toplay.getValue() == 10)
                     playerturn = 1;
                 
-                else if (toplay.getValue() == 'R')
+                else if (toplay.getValue() == 11)
                     playerturn = 1;
                 
                 else
@@ -81,32 +82,33 @@ public class Game {
                 
                 //if cannot play card
                 if (toplay == null){
-                    strat1.takeCard(table.drawCard()); //draw card
+                    strat2.takeCard(table.drawCard()); //draw card
                 }
                 
                 //check to make sure card is playable. add for wild cards
-                if (toplay.getColor() == 'W'){
+                else if (toplay.getColor() == 5){
                     //we need to figure out how to play wilds
-                    if (toplay.getValue() == 'D'){
+                    if (toplay.getValue() == 1){
                         Draw4Card(strat1);
                         playerturn = 2;
                     }
                 }
                 
-                if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
+                 else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
                     System.out.print("Exception: card doesn't match");
                 table.addToFaceUp(toplay);
                 
-                if (toplay.getValue() == 'd'){
+                System.out.println("Player 2: " + toplay.getValue());
+                if (toplay.getValue() == 12){
                     Draw2Card(strat1);
                     //current rule same player
                     playerturn = 2;                
                 } 
                 
-                else if (toplay.getValue() == 'S')
+                else if (toplay.getValue() == 10)
                     playerturn = 2;
                 
-                else if (toplay.getValue() == 'R')
+                else if (toplay.getValue() == 11)
                     playerturn = 2;
                 
                 else

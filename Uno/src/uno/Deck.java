@@ -75,6 +75,7 @@ public class Deck {
     
     
     nextCardIndex = 0;
+    Collections.shuffle(theCards);
   }
   
   // Overloaded constructor to take face up cards and re-shuffle them as the new
@@ -112,12 +113,5 @@ public class Deck {
       
     }
   }
-  
-  public ArrayList Shuffle()
-  {
-      Collections.shuffle(theCards);
-      return theCards;
-  }
-
-    
+      
 }

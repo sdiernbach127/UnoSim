@@ -17,6 +17,7 @@ public class ColorStrategy extends Strategy
     
     public Card playCard(Card faceUpCard)
     {
+        System.out.println("Playing card");
         for(int i = 0; i < hand.size() - 1; i++){
             if (hand.get(i).getColor()==faceUpCard.getColor()){
                 Card toPlay = hand.get(i);
@@ -32,7 +33,7 @@ public class ColorStrategy extends Strategy
             }
         }
         for(int i = 0; i < hand.size() - 1; i++){
-            if (hand.get(i).getValue() == 'W'){
+            if (hand.get(i).getValue() == 5){
                 Card toPlay = hand.get(i);
                 hand.remove(i);
                 return toPlay;
