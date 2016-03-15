@@ -21,10 +21,11 @@ public class Game {
         strat1 draw 7, strat2 draw 7. 
         table show 1 from deck
         */
-        for(int start = 0; start <= 7; start ++){
+        for(int start = 0; start < 7; start ++){
             strat1.takeCard(table.drawCard());
             strat2.takeCard(table.drawCard());
         }
+        
         table.addToFaceUp(table.drawCard());
         
         
