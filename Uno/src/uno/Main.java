@@ -11,7 +11,10 @@ package uno;
  */
 public class Main 
 {
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
+        Strategy aggressive = new AggressiveStrategy();
+        Strategy passive = new PassiveStrategy();
+        Game game = new Game(aggressive, passive);
     }
 }
