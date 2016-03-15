@@ -7,6 +7,7 @@ package uno;
 public abstract class Strategy 
 {
    public abstract Card playCard();
-   public abstract void takeCard(Card drawnCard);     
+   public abstract void takeCard(Card drawnCard);
+   public abstract int getHandSize();
    
 }
