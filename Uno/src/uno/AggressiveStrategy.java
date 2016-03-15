@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class AggressiveStrategy extends Strategy
 {
     ArrayList<Card> hand = new ArrayList<>();
+    boolean hasWild = false;
     
     public Card playCard(Card faceUpCard)
     {
@@ -22,8 +23,8 @@ public class AggressiveStrategy extends Strategy
         //skip
         //reverse
         //anything else
-        
-        int cardIndex = determineMax();
+        int cardColor = faceUpCard.getColor();
+        int cardIndex = determineMax(faceUpCard);
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);
         return retCard; // play the card with the higest values
@@ -39,18 +40,33 @@ public class AggressiveStrategy extends Strategy
         return hand.size();
     }
     
-    private int determineMax()
+    private int determineMax(Card faceUpCard)
     {
         int maxCardIndex = 0;
         int maxCardValue = 0;
         
+        
+        
         for(Card c:hand)
         {
+            if(c.getColor() == 5)
+            {
+                if(c.getValue() == 1)
+                {
+                    maxCardIndex = hand.indexOf(c);
+                    return maxCardIndex;
+                }
+            }
+            else if(c.getColor() == faceUpCard.getColor())
             if(c.getValue() > maxCardValue)
             {
                 maxCardValue = c.getValue();
                 maxCardIndex = hand.indexOf(c);
             }           
+        }
+        if(maxCardValue == 0)
+        {
+            hasWild = true;
         }
         return maxCardIndex; //we retunr the index in the hand so we can play the correct card
     }
