@@ -33,12 +33,16 @@ public class Game {
         //While game is not over
         while(GameOver(strat1, strat2) != true){
             if (playerturn == 1){
-                //if (player cannot play a card)
-                       //draw card 
+                
+                        
                 Card toplay = strat1.playCard(table.topUp());
+                //if cannot play card
+                if (toplay == null){
+                    strat1.takeCard(table.drawCard()); //draw card
+                }
                 
                 //check to make sure card is playable. add for wild cards
-                if (toplay.getColor() == 'W'){
+                else if (toplay.getColor() == 'W'){
                     //we need to figure out how to play wilds
                     if (toplay.getValue() == 'D'){
                         Draw4Card(strat2);
@@ -49,7 +53,7 @@ public class Game {
                 //if wild card: behavior
                 
                 //then this next if is an elif so it is part of the whole if block?
-                if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
+                else if (toplay.getColor() != table.topUp().getColor() || toplay.getValue() != table.topUp().getValue())
                     System.out.print("Exception: card doesn't match"); // Not sure but won't this fire with all wild cards because the color and value won't match?
                     //do we want the above to be a true exception thrown or keep it a print so we know it happened?
                 table.addToFaceUp(toplay); 
@@ -72,10 +76,13 @@ public class Game {
             }
             
             
-            if (playerturn == 2){
-                //if (player cannot play a card)
-                       //draw card 
+            if (playerturn == 2){ 
                 Card toplay = strat2.playCard(table.topUp());
+                
+                //if cannot play card
+                if (toplay == null){
+                    strat1.takeCard(table.drawCard()); //draw card
+                }
                 
                 //check to make sure card is playable. add for wild cards
                 if (toplay.getColor() == 'W'){
