@@ -17,9 +17,7 @@ public class PassiveStrategy extends Strategy
     
     public Card playCard()
     {
-        Card toPlay = hand.get(0);
-        hand.remove(0);
-        return toPlay;
+        return hand.get(determineLowestCard()); // play the lowest card in the hand
     }
     
     public void takeCard(Card drawnCard)
@@ -30,6 +28,22 @@ public class PassiveStrategy extends Strategy
     public int getHandSize()
     {
         return hand.size();
+    }
+    
+    private int determineLowestCard() // does this count as passive?
+    {
+        int lowestCardIndex = 0;
+        int lowestCardValue = 0;
+        
+        for(Card c : hand)
+        {
+            if(c.getValue() < lowestCardValue)
+            {
+                lowestCardValue = c.getValue();
+                lowestCardIndex = hand.indexOf(c);
+            }
+        }
+        return lowestCardIndex; // we want to return the index of the lowest card
     }
     
 }

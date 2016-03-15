@@ -23,9 +23,7 @@ public class AggressiveStrategy extends Strategy
         //reverse
         //anything else
         
-        Card toPlay = hand.get(0);
-        hand.remove(0);
-        return toPlay;
+        return hand.get(determineMax()); // play the card with the higest values
     }
     
     public void takeCard(Card drawnCard)
@@ -36,6 +34,22 @@ public class AggressiveStrategy extends Strategy
     public int getHandSize()
     {
         return hand.size();
+    }
+    
+    private int determineMax()
+    {
+        int maxCardIndex = 0;
+        int maxCardValue = 0;
+        
+        for(Card c:hand)
+        {
+            if(c.getValue() > maxCardValue)
+            {
+                maxCardValue = c.getValue();
+                maxCardIndex = hand.indexOf(c);
+            }           
+        }
+        return maxCardIndex; //we retunr the index in the hand so we can play the correct card
     }
     
 }
