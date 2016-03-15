@@ -17,9 +17,28 @@ public class ColorStrategy extends Strategy
     
     public Card playCard(Card faceUpCard)
     {
-        Card toPlay = hand.get(0);
-        hand.remove(0);
-        return toPlay;
+        for(int i = 0; i < hand.size() - 1; i++){
+            if (hand.get(i).getColor()==faceUpCard.getColor()){
+                Card toPlay = hand.get(i);
+                hand.remove(i);
+                return toPlay;
+            }
+        }
+        for(int i = 0; i < hand.size() - 1; i++){
+            if (hand.get(i).getValue() == faceUpCard.getValue()){
+                Card toPlay = hand.get(i);
+                hand.remove(i);
+                return toPlay;
+            }
+        }
+        for(int i = 0; i < hand.size() - 1; i++){
+            if (hand.get(i).getValue() == 'W'){
+                Card toPlay = hand.get(i);
+                hand.remove(i);
+                return toPlay;
+            }
+        }
+        return null;
     }
     
     public void takeCard(Card drawnCard)
