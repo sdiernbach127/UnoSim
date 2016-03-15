@@ -22,8 +22,10 @@ public class AggressiveStrategy extends Strategy
         //skip
         //reverse
         //anything else
-        
-        return hand.get(determineMax()); // play the card with the higest values
+        int cardIndex = determineMax();
+        Card retCard = hand.get(cardIndex);
+        hand.remove(cardIndex);
+        return retCard; // play the card with the higest values
     }
     
     public void takeCard(Card drawnCard)

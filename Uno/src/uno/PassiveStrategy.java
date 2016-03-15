@@ -17,7 +17,10 @@ public class PassiveStrategy extends Strategy
     
     public Card playCard()
     {
-        return hand.get(determineLowestCard()); // play the lowest card in the hand
+        int cardIndex = determineLowestCard();
+        Card retCard = hand.get(cardIndex);
+        hand.remove(cardIndex);
+        return hand.get(cardIndex); // play the lowest card in the hand
     }
     
     public void takeCard(Card drawnCard)
