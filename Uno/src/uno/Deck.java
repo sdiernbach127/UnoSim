@@ -114,5 +114,9 @@ public class Deck {
       
     }
   }
+  
+  public int sizeOfDeck(){
+      return theCards.size() - nextCardIndex;
+  }
       
 }

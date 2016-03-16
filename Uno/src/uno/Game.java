@@ -230,6 +230,7 @@ public class Game {
                
         }
         numTurns += 1;
+        System.out.println("Size of the deck at turn " + numTurns + ": " + table.theDeck.sizeOfDeck());
     }
         System.out.println("Total turns played (each player goes once): " + numTurns);
         System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
