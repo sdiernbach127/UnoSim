@@ -30,7 +30,7 @@ public class Game {
         
         table.addToFaceUp(table.drawCard());
         
-        
+        int winnerIs = -1;
         
         //While game is not over
         while(GameOver(strat1, strat2) != true){
@@ -90,7 +90,12 @@ public class Game {
                         table.topUp().setColor(strat1.chooseColor()); //set the color of the wild card strat1's choosing
                     }
                 
-                }      
+                }
+                if(strat1.getHandSize() == 0){ //check to see if player 1 has won 
+                    winnerIs = 1;
+                    System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
+                    return winnerIs;
+                }
             }
             
             
@@ -144,17 +149,17 @@ public class Game {
                         table.topUp().setColor(strat2.chooseColor()); //wild card becomes color of strat2's choice
                     }
                 }
+                if(strat2.getHandSize() == 0){ //check to see if player 2 has won now
+                    winnerIs = 2;
+                    System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
+                    return winnerIs;
             }
         }
+        
+        
+    }
         System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
-        if(strat2.getHandSize() == 0)
-        {
-            return 2;
-        }
-        else
-        {
-            return 1;
-        }
+        return winnerIs;
     }
     
     public boolean GameOver(Strategy strat1, Strategy strat2){
