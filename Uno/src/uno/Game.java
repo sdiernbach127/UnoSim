@@ -63,22 +63,25 @@ public class Game {
                 System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
                 System.out.println("Player 1 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
                 
-                if (toplay.getValue() == 12){
+                if (toplay != null && toplay.getValue() == 12){
                     Draw2Card(strat2);
                     //current rule same player
                     playerturn = 1;                
                 } 
                 
-                else if (toplay.getValue() == 10)
+                else if (toplay != null && toplay.getValue() == 10)
                     playerturn = 1;
                 
-                else if (toplay.getValue() == 11)
+                else if (toplay != null && toplay.getValue() == 11)
                     playerturn = 1;
                 
                 else
                     playerturn = 2;
+                if(toplay != null)
+                {
+                    table.addToFaceUp(toplay);
+                }
                 
-                table.addToFaceUp(toplay);
                 if(table.topUp().getColor() == 5) //card was legal and is a wild
                 {
                     table.topUp().setColor(strat1.chooseColor()); //set the color of the wild card strat1's choosing
@@ -111,23 +114,25 @@ public class Game {
                 System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
                 System.out.println("Player 2 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
                 
-                if (toplay.getValue() == 12){
+                if (toplay != null && toplay.getValue() == 12){
                     Draw2Card(strat1);
                     //current rule same player
                     playerturn = 2;                
                 } 
                 
-                else if (toplay.getValue() == 10)
+                else if (toplay != null && toplay.getValue() == 10)
                     playerturn = 2;
                 
-                else if (toplay.getValue() == 11)
+                else if (toplay != null && toplay.getValue() == 11)
                     playerturn = 2;
                 
                 else
                     playerturn = 1; //next turn
                 
-                table.addToFaceUp(toplay);
-               
+                if(toplay != null)
+                {
+                    table.addToFaceUp(toplay);
+                }
                 if(table.topUp().getColor() == 5) // played a regular wild
                 {
                     table.topUp().setColor(strat2.chooseColor()); //wild card becomes color of strat2's choice
