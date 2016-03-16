@@ -31,8 +31,8 @@ public class Game {
         for(int start = 0; start < 7; start ++){
             strat1.takeCard(table.drawCard());
             strat2.takeCard(table.drawCard());
-            numDrawnCardsP1 += 7;
-            numDrawnCardsP2 +=7;
+            numDrawnCardsP1 += 1;
+            numDrawnCardsP2 +=1;
         }
         
         table.addToFaceUp(table.drawCard());
