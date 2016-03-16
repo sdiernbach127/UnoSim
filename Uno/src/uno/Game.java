@@ -48,9 +48,9 @@ public class Game {
                 //if cannot play card
                 if (toplay == null)
                 {
-                    Card drawnCard = table.drawCard();
+                    toplay = table.drawCard();
                     //System.out.println("P1 card drawn when no playable card= " + drawnCard);
-                    strat1.takeCard(drawnCard); //draw card
+                    strat1.takeCard(toplay); //draw card
                     playerturn = 2;
                     
                     //if the deck is empty, we take and reshuffle the face up pile
@@ -66,7 +66,6 @@ public class Game {
                     numDrawnCardsP1 += 1;
 
                 }
-                
                 else
                 {
                     //check to make sure card is playable. add for wild cards
@@ -90,7 +89,7 @@ public class Game {
                     //System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
                     //System.out.println("Player 1 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
                 
-                    if(toplay.getValue() == 12)
+                    else if(toplay.getValue() == 12)
                     {
                         Draw2Card(strat2);
                         //current rule same player
@@ -143,9 +142,9 @@ public class Game {
                 
                 //if cannot play card
                 if (toplay == null){
-                    Card drawnCard = table.drawCard();
+                    toplay = table.drawCard();
                     //System.out.println("P2 card drawn when can't play a card= " + drawnCard);
-                    strat2.takeCard(drawnCard); //draw card
+                    strat2.takeCard(toplay); //draw card
                     playerturn = 1;
                     
                     //if the deck is empty, we take and reshuffle the face up pile

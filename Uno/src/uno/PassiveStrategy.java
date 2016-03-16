@@ -24,56 +24,42 @@ public class PassiveStrategy extends Strategy
             return null;
         }   
         //System.out.println("retIndex = " + cardIndex + " and hand = " + hand.size());
-        Card retCard = hand.get(cardIndex);
-        hand.remove(cardIndex);
+        Card retCard = this.hand.get(cardIndex);
+        this.hand.remove(cardIndex);
         return retCard; // play the lowest card in the hand
     }
     
     public void takeCard(Card drawnCard)
     {
-        hand.add(drawnCard);
+        this.hand.add(drawnCard);
     }
     
     public int getHandSize()
     {
-        return hand.size();
+        return this.hand.size();
     }
     
     private int determineLowestCard(Card faceUp) // does this count as passive?
     {
         int lowestCardIndex = -1;
-        int lowestCardValue = -1;
-        
-        for(int i = 0; i < hand.size()-1; i++)
+        int lowestCardValue = 100;
+        System.out.println("Hand size = " + hand.size());
+        for(Card c : hand)
         {
-            System.out.println(hand.get(i));
-            if(hand.get(i).getColor() == faceUp.getColor() || hand.get(i).getValue() == faceUp.getValue())
-            {
-                if(hand.get(i).getValue() < lowestCardValue)
+            //if(c != null)
+            //{
+               //System.out.println(hand.get(i));
+                if(c.getColor() == faceUp.getColor() || c.getValue() == faceUp.getValue() || c.getColor() == 5)
                 {
-                    lowestCardValue = hand.get(i).getValue();
-                    lowestCardIndex = hand.indexOf(hand.get(i));
-                }
-            }
-        }
-        
-        if(lowestCardIndex == -1)
-        {
-            for(Card c : hand)
-            {
-                if(c.getColor() == 5)
-                {
-                    if(c.getValue() == 0)
+                    if(c.getValue() < lowestCardValue)
                     {
-                        return hand.indexOf(c); // regular wild
-                    }
-                    else
-                    {
-                        return hand.indexOf(c); //draw 4
+                        lowestCardValue = c.getValue();
+                        lowestCardIndex = hand.indexOf(c);
                     }
                 }
-            }
+            //}
         }
+        
         //System.out.println("Index = " + lowestCardIndex + " and hand size = " + hand.size());
         return lowestCardIndex; // we want to return the index of the lowest card
     }
@@ -84,7 +70,7 @@ public class PassiveStrategy extends Strategy
         int[] colors = new int[6];
         int color = 0; //set color we have the most of to 0
         
-        for(Card c: hand)
+        for(Card c: this.hand)
         {
            //System.out.println(c.getColor());
             colors[c.getColor()] += 1;

@@ -18,16 +18,16 @@ public class Main
         //Strategy color = new ColorStrategy();
         //Strategy color1 = new ColorStrategy();
         Strategy color = new AggressiveStrategy();
-        Strategy color1 = new AggressiveStrategy();
+        //Strategy color1 = new AggressiveStrategy();
         //Strategy color = new PassiveStrategy();
-        //Strategy color1 = new PassiveStrategy();
+        Strategy color1 = new PassiveStrategy();
         //Strategy color = new UnitStrategy();
         //Strategy color1 = new UnitStrategy();
         //Strategy color = new testStrategy();
         //Strategy color1 = new testStrategy();
        
         Game game = new Game();
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 100; i++)
         {
             game = new Game();
             winner = game.playGame(color, color1);
