@@ -27,6 +27,7 @@ public class Card
 {
     private int clr;
     private int val;
+    private int tempclr;
     
     public Card(int color, int value)
     {

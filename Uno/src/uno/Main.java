@@ -27,7 +27,7 @@ public class Main
         //Strategy color1 = new testStrategy();
        
         Game game = new Game();
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 10; i++)
         {
             game = new Game();
             winner = game.playGame(color, color1);
