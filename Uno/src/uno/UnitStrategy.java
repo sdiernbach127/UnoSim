@@ -17,9 +17,46 @@ public class UnitStrategy extends Strategy
     
     public Card playCard(Card faceUpCard)
     {
-        Card toPlay = hand.get(0);
-        hand.remove(0);
-        return toPlay;
+       //first matching unit
+        //anything else
+        int cardColor = faceUpCard.getColor();
+        int cardIndex = determineMax(faceUpCard);
+        
+        if(cardIndex == -1)
+        {
+            return null; //if there isn't a playable card return null here
+        }
+        
+        
+        Card retCard = hand.get(cardIndex);
+        hand.remove(cardIndex);
+        return retCard; // play the card with the higest values
+    }
+    
+    private int determineMax(Card faceUpCard)
+    {
+        int maxCardIndex = -1;
+        int maxCardValue = -1;
+        
+        System.out.println("Hand Size: " + hand.size());
+        for (Card c : hand){
+            if (c.getValue()==faceUpCard.getValue()){//match value first
+                maxCardIndex = hand.indexOf(c);
+                return maxCardIndex;
+            }
+            
+            if(c.getColor() == faceUpCard.getColor()){//match color next
+                maxCardIndex = hand.indexOf(c);
+                return maxCardIndex;
+            }
+            
+            if(c.getColor() == 5){//then do wilds
+                maxCardIndex = hand.indexOf(c);
+                return maxCardIndex;
+            }
+        }
+        
+        return maxCardIndex;
     }
     
     public void takeCard(Card drawnCard)

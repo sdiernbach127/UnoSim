@@ -33,6 +33,15 @@ public class ColorStrategy extends Strategy
         return retCard; // play the card with the higest values
     }
     
+    public void takeCard(Card drawnCard)
+    {
+        hand.add(drawnCard);
+    }
+    
+    public int getHandSize()
+    {
+        return hand.size();
+    }
     
     private int determineMax(Card faceUpCard)
     {
@@ -58,16 +67,6 @@ public class ColorStrategy extends Strategy
         }
         
         return maxCardIndex;
-    }
-    
-    public void takeCard(Card drawnCard)
-    {
-        hand.add(drawnCard);
-    }
-    
-    public int getHandSize()
-    {
-        return hand.size();
     }
     
     public int chooseColor()
