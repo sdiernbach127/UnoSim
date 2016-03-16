@@ -24,11 +24,15 @@ public class RandomStrategy extends Strategy
         // We can do the following or just play the hand in order of how we have it.
         if(rand.nextDouble() > 0.5)
         {
-            cardIndex = getHighestCard();
+            cardIndex = getHighestCard(faceUpCard);
         }
         else
         {
-            cardIndex = getLowestCard();
+            cardIndex = getLowestCard(faceUpCard);
+        }
+        if(cardIndex == -1)
+        {
+            return null;
         }
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);
@@ -45,35 +49,71 @@ public class RandomStrategy extends Strategy
         return hand.size();
     }
     
-    private int getHighestCard()
+    private int getHighestCard(Card faceUpCard)
     {
-        int maxCardIndex = 0;
-        int maxCardValue = 0;
+        int maxCardIndex = -1;
+        int maxCardValue = -1;
+        
+        
         
         for(Card c:hand)
         {
-            if(c.getValue() > maxCardValue)
+            //System.out.println(c);
+            //System.out.println("c index = " + hand.indexOf(c));
+            //System.out.println("hand = " + hand.size());
+            if(c.getColor() == 5)
             {
-                maxCardValue = c.getValue();
-                maxCardIndex = hand.indexOf(c);
-            }           
+                if(c.getValue() == 14)
+                {
+                    maxCardIndex = hand.indexOf(c);
+                    return maxCardIndex;
+                }
+            }
+            if(c.getColor() == faceUpCard.getColor() || c.getValue() == faceUpCard.getValue())
+            {
+                if(c.getValue() > maxCardValue)
+                {
+                    maxCardValue = c.getValue(); // if the colors match or values match and we get a max card then go for it
+                    maxCardIndex = hand.indexOf(c);
+                }
+            }
+        }
+        
+        if(maxCardIndex == -1) //if we still didn't find one
+        {
+            for(Card c: hand)
+            {
+                if(c.getColor() == 5)
+                {
+                    return hand.indexOf(c); //figure out how to say color change
+                }
+            }
         }
         return maxCardIndex; //we retunr the index in the hand so we can play the correct card
     }
     
-    private int getLowestCard()
+    private int getLowestCard(Card faceUpCard)
     {
-        int lowestCardIndex = 0;
-        int lowestCardValue = 0;
-        
+        int lowestCardIndex = -1;
+        int lowestCardValue = 100;
+        System.out.println("Hand size = " + hand.size());
         for(Card c : hand)
         {
-            if(c.getValue() < lowestCardValue)
-            {
-                lowestCardValue = c.getValue();
-                lowestCardIndex = hand.indexOf(c);
-            }
+            //if(c != null)
+            //{
+               //System.out.println(hand.get(i));
+                if(c.getColor() == faceUpCard.getColor() || c.getValue() == faceUpCard.getValue() || c.getColor() == 5)
+                {
+                    if(c.getValue() < lowestCardValue)
+                    {
+                        lowestCardValue = c.getValue();
+                        lowestCardIndex = hand.indexOf(c);
+                    }
+                }
+            //}
         }
+        
+        //System.out.println("Index = " + lowestCardIndex + " and hand size = " + hand.size());
         return lowestCardIndex; // we want to return the index of the lowest card
     }
     
