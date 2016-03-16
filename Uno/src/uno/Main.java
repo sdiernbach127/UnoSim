@@ -15,18 +15,23 @@ public class Main
     {
         int winner;
 
-        Strategy color1 = new ColorStrategy();
+        //Strategy color = new ColorStrategy();
+        //Strategy color1 = new ColorStrategy();
         Strategy color = new AggressiveStrategy();
-        //Strategy color1 = new AggressiveStrategy();
+        Strategy color1 = new AggressiveStrategy();
         //Strategy color = new PassiveStrategy();
         //Strategy color1 = new PassiveStrategy();
         //Strategy color = new UnitStrategy();
         //Strategy color1 = new UnitStrategy();
 
-        
+       
         Game game = new Game();
-        winner = game.playGame(color, color1);
-        System.out.println("Strategy " + winner + " wins!");
-        
-    }
+        for(int i = 0; i < 5; i++)
+        {
+            winner = game.playGame(color, color1);
+            System.out.println("Strategy " + winner + " wins!");
+        }
+
+    }   
+
 }

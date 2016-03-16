@@ -35,4 +35,20 @@ public class Table
         return faceUpCards.get(faceUpCards.size()-1);
     }
     
+    public boolean emptyDeck()
+    {
+        if(theDeck.hasNext() == false)
+        {
+            return true;
+        }
+        return false;
+        
+    }
+    public ArrayList takePile()
+    {
+        ArrayList<Card> ret = faceUpCards;
+        faceUpCards = new ArrayList<>();
+        return ret;
+    }
+    
 }

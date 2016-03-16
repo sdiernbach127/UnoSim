@@ -39,12 +39,27 @@ public class Game {
                         
                 toplay = strat1.playCard(table.topUp());
                 //if cannot play card
-                if (toplay == null){
+                if (toplay == null)
+                {
                     strat1.takeCard(table.drawCard()); //draw card
                     playerturn = 2;
+                    
+                    //if the deck is empty, we take and reshuffle the face up pile
+                    //we then pass it as a new deck, but we can just re-make the whole table
+                    //in fewer statements
+                    if(table.emptyDeck() == true)
+                    {
+                        System.out.println("Player 1 emptied the deck");
+                        Deck temp = new Deck(table.takePile());
+                        table = new Table(temp);
+                        table.addToFaceUp(table.drawCard());
+                    }
+                    
+
                 }
                 
-                else{
+                else
+                {
                     //check to make sure card is playable. add for wild cards
                     if (toplay.getColor() == 5){
                         //we need to figure out how to play wilds
@@ -98,6 +113,16 @@ public class Game {
                 }
             }
             
+            //if the deck is empty, we take and reshuffle the face up pile
+            //we then pass it as a new deck, but we can just re-make the whole table
+            //in fewer statements
+            if(table.emptyDeck() == true)
+            {
+                System.out.println("Player 1 emptied the deck");
+                Deck temp = new Deck(table.takePile());
+                table = new Table(temp);
+                table.addToFaceUp(table.drawCard());
+            }
             
             if (playerturn == 2){ 
                 toplay = strat2.playCard(table.topUp());
@@ -106,6 +131,18 @@ public class Game {
                 if (toplay == null){
                     strat2.takeCard(table.drawCard()); //draw card
                     playerturn = 1;
+                    
+                    //if the deck is empty, we take and reshuffle the face up pile
+                    //we then pass it as a new deck, but we can just re-make the whole table
+                    //in fewer statements
+                    if(table.emptyDeck() == true)
+                    {
+                        System.out.println("Player 1 emptied the deck");
+                        Deck temp = new Deck(table.takePile());
+                        table = new Table(temp);
+                        table.addToFaceUp(table.drawCard());
+                    }
+
                 }
                 
                 else
@@ -149,11 +186,25 @@ public class Game {
                         table.topUp().setColor(strat2.chooseColor()); //wild card becomes color of strat2's choice
                     }
                 }
-                if(strat2.getHandSize() == 0){ //check to see if player 2 has won now
+                
+                //We check here again because player 2 could have also cleared the deck.
+                //if the deck is empty, we take and reshuffle the face up pile
+                //we then pass it as a new deck, but we can just re-make the whole table
+                //in fewer statements
+                if(table.emptyDeck() == true)
+                {
+                    System.out.println("Player 2 emptied deck");
+                    Deck temp = new Deck(table.takePile());
+                    table = new Table(temp);
+                    table.addToFaceUp(table.drawCard());
+                }
+            
+                if(strat2.getHandSize() == 0)
+                { //check to see if player 2 has won now
                     winnerIs = 2;
                     System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
                     return winnerIs;
-            }
+                }
         }
         
         
@@ -171,15 +222,58 @@ public class Game {
             return false;
     }
     
-    public void Draw2Card(Strategy strat){
-        strat.takeCard(table.drawCard());//drawCard from deck, we need to acces table here
-        strat.takeCard(table.drawCard());
+    public void Draw2Card(Strategy strat)
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            //if the deck is empty, we take and reshuffle the face up pile
+            //we then pass it as a new deck, but we can just re-make the whole table
+            //in fewer statements
+            if(table.emptyDeck() == true)
+            {
+                System.out.println("Player 1 emptied the deck");
+                Deck temp = new Deck(table.takePile());
+                table = new Table(temp);
+                table.addToFaceUp(table.drawCard());
+            }
+            strat.takeCard(table.drawCard());//drawCard from deck, we need to acces table here
+        }
+        //overkill?
+        //to catch an empty deck after the fact
+        if(table.emptyDeck() == true)
+        {
+            System.out.println("Player 1 emptied the deck");
+            Deck temp = new Deck(table.takePile());
+            table = new Table(temp);
+            table.addToFaceUp(table.drawCard());
+        }
     } 
     
     public void Draw4Card(Strategy strat){
-        strat.takeCard(table.drawCard());//drawCard from deck
-        strat.takeCard(table.drawCard());//drawCard from deck
-        strat.takeCard(table.drawCard());//drawCard from deck
-        strat.takeCard(table.drawCard());//drawCard from deck
+        for(int i = 0; i < 4; i++)
+        {
+            //make sure we don't empty the deck
+            //if the deck is empty, we take and reshuffle the face up pile
+            //we then pass it as a new deck, but we can just re-make the whole table
+            //in fewer statements
+            if(table.emptyDeck() == true)
+            {
+                System.out.println("Player 1 emptied the deck");
+                Deck temp = new Deck(table.takePile());
+                table = new Table(temp);
+                table.addToFaceUp(table.drawCard());
+            }
+            strat.takeCard(table.drawCard());
+        }
+        //overkill?
+        //to catch an empty deck after the fact
+        if(table.emptyDeck() == true)
+        {
+            System.out.println("Player 1 emptied the deck");
+            Deck temp = new Deck(table.takePile());
+            table = new Table(temp);
+            table.addToFaceUp(table.drawCard());
+        }
+
     } 
 }

@@ -43,14 +43,15 @@ public class PassiveStrategy extends Strategy
         int lowestCardIndex = -1;
         int lowestCardValue = -1;
         
-        for(Card c : hand)
+        for(int i = 0; i < hand.size()-1; i++)
         {
-            if(c.getColor() == faceUp.getColor() || c.getValue() == faceUp.getValue())
+            System.out.println(hand.get(i));
+            if(hand.get(i).getColor() == faceUp.getColor() || hand.get(i).getValue() == faceUp.getValue())
             {
-                if(c.getValue() < lowestCardValue)
+                if(hand.get(i).getValue() < lowestCardValue)
                 {
-                    lowestCardValue = c.getValue();
-                    lowestCardIndex = hand.indexOf(c);
+                    lowestCardValue = hand.get(i).getValue();
+                    lowestCardIndex = hand.indexOf(hand.get(i));
                 }
             }
         }

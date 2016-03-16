@@ -84,6 +84,7 @@ public class Deck {
   {
       theCards = faceUpPile;
       Collections.shuffle(theCards);
+      nextCardIndex = 0;
   }
   
   // Other methods go here.
