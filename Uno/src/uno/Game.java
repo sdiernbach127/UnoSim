@@ -230,6 +230,8 @@ public class Game {
                
         }
         numTurns += 1;
+        System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
+        System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
         System.out.println("Size of the deck at turn " + numTurns + ": " + table.theDeck.sizeOfDeck());
     }
         System.out.println("Total turns played (each player goes once): " + numTurns);
