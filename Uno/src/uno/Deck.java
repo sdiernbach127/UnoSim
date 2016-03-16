@@ -24,7 +24,7 @@ public class Deck {
   public Deck(String filename)
   {
     // Create the arraylist so we have a place to put the cards
-    theCards = new ArrayList<Card>(108);
+    theCards = new ArrayList<Card>();
     
     try
     {

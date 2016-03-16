@@ -21,11 +21,12 @@ public class testStrategy extends Strategy
         Card temp;
         for(int i = 0; i < hand.size(); i++)
         {
-            System.out.println("Check if Card = " + hand.get(i) + " and its index = " + i + " hand size = " + hand.size());
+            System.out.println("Check is real Card = " + hand.get(i) + " and its index = " + i + " hand size = " + hand.size() + " and face card is " + faceUpCard);
             if(hand.get(i).getColor() == faceUpCard.getColor() || hand.get(i).getValue() == faceUpCard.getValue() || hand.get(i).getColor() == 5)
             {
                 temp = hand.get(i);
                 hand.remove(hand.get(i));
+                System.out.println("About to play " + temp);
                 return temp;
             }
         }
@@ -35,7 +36,9 @@ public class testStrategy extends Strategy
     @Override
     public void takeCard(Card drawnCard) 
     {
-        hand.add(drawnCard);
+        System.out.println("DrawnCard = " + drawnCard);
+        if(drawnCard != null)
+            hand.add(drawnCard);
     }
 
     @Override

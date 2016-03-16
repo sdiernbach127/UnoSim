@@ -41,7 +41,9 @@ public class Game {
                 //if cannot play card
                 if (toplay == null)
                 {
-                    strat1.takeCard(table.drawCard()); //draw card
+                    Card drawnCard = table.drawCard();
+                    System.out.println("P1 card = " + drawnCard);
+                    strat1.takeCard(drawnCard); //draw card
                     playerturn = 2;
                     
                     //if the deck is empty, we take and reshuffle the face up pile
@@ -129,7 +131,9 @@ public class Game {
                 
                 //if cannot play card
                 if (toplay == null){
-                    strat2.takeCard(table.drawCard()); //draw card
+                    Card drawnCard = table.drawCard();
+                    System.out.println("P2 card = " + drawnCard);
+                    strat2.takeCard(drawnCard); //draw card
                     playerturn = 1;
                     
                     //if the deck is empty, we take and reshuffle the face up pile
@@ -236,7 +240,9 @@ public class Game {
                 table = new Table(temp);
                 table.addToFaceUp(table.drawCard());
             }
-            strat.takeCard(table.drawCard());//drawCard from deck, we need to acces table here
+            Card drawnCard = table.drawCard();
+            System.out.println("D2 card = " + drawnCard);
+            strat.takeCard(drawnCard);//drawCard from deck, we need to acces table here
         }
         //overkill?
         //to catch an empty deck after the fact
@@ -263,7 +269,9 @@ public class Game {
                 table = new Table(temp);
                 table.addToFaceUp(table.drawCard());
             }
-            strat.takeCard(table.drawCard());
+            Card drawnCard = table.drawCard();
+            System.out.println("D4 card = " + drawnCard);
+            strat.takeCard(drawnCard);
         }
         //overkill?
         //to catch an empty deck after the fact
