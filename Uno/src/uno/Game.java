@@ -63,12 +63,9 @@ public class Game {
                 else
                 {
                     //check to make sure card is playable. add for wild cards
-                    if (toplay.getColor() == 5){
-                        //we need to figure out how to play wilds
-                        if (toplay.getValue() == 1){
-                            Draw4Card(strat2);
-                            playerturn = 1;
-                        }
+                    if (toplay.getColor() == 5 && toplay.getValue() == 1){                        
+                        Draw4Card(strat2);
+                        playerturn = 1;
                     }
                 
                     //if wild card: behavior
@@ -152,12 +149,9 @@ public class Game {
                 else
                 {
                     //check to make sure card is playable. add for wild cards
-                    if (toplay.getColor() == 5){
-                        //we need to figure out how to play wilds
-                        if (toplay.getValue() == 1){
-                            Draw4Card(strat1);
-                            playerturn = 2;
-                        }
+                    if (toplay.getColor() == 5 && toplay.getValue() == 1){                       
+                        Draw4Card(strat1);
+                        playerturn = 2;                     
                     }
                 
                     else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
