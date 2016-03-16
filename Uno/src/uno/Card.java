@@ -79,4 +79,9 @@ public class Card
     String newstring= (clrSt + " " + valSt);
     return (newstring);
   }
+   
+    public void setColor(int color)
+    {
+        clr = color;
+    }
 }

@@ -13,8 +13,13 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Strategy color = new ColorStrategy();
-        Strategy color1 = new ColorStrategy();
-        Game game = new Game(color, color1);
+        //Strategy color = new ColorStrategy();
+        //Strategy color1 = new ColorStrategy();
+        Strategy color = new AggressiveStrategy();
+        Strategy color1 = new AggressiveStrategy();
+        
+        Game game = new Game();
+        game.playGame(color1, color1);
+        
     }
 }

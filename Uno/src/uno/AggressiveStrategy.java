@@ -90,7 +90,7 @@ public class AggressiveStrategy extends Strategy
     public int chooseColor()
     {
         
-        int[] colors = new int[5];
+        int[] colors = new int[6];
         int color = 0; //set color we have the most of to 0
         
         for(Card c: hand)

@@ -9,6 +9,6 @@ public abstract class Strategy
    public abstract Card playCard(Card faceUpCard);
    public abstract void takeCard(Card drawnCard);
    public abstract int getHandSize();
-   
+   public abstract int chooseColor();
 }
 // strategies must determine what color to play after playing a wild card

@@ -15,7 +15,8 @@ public class Game {
     int playerturn = 1;
     Deck deck= new Deck("UnoDeck.dat");
     Table table = new Table(deck);
-    public Game (Strategy strat1, Strategy strat2){
+    int faceColor;
+    public void playGame (Strategy strat1, Strategy strat2){
         /*
         Set Up
         strat1 draw 7, strat2 draw 7. 
@@ -78,6 +79,12 @@ public class Game {
                     playerturn = 2;
                 
                 table.addToFaceUp(toplay);
+                if(table.topUp().getColor() == 5) //card was legal and is a wild
+                {
+                    table.topUp().setColor(strat1.chooseColor()); //set the color of the wild card strat1's choosing
+                }
+                
+                    
             }
             
             
@@ -120,7 +127,11 @@ public class Game {
                     playerturn = 1; //next turn
                 
                 table.addToFaceUp(toplay);
-                
+               
+                if(table.topUp().getColor() == 5) // played a regular wild
+                {
+                    table.topUp().setColor(strat2.chooseColor()); //wild card becomes color of strat2's choice
+                }
             }
         }
     }
