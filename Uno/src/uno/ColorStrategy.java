@@ -49,7 +49,7 @@ public class ColorStrategy extends Strategy
         int maxCardIndex = -1;
         int maxCardValue = -1;
         
-        System.out.println("Hand Size: " + hand.size());
+        
         for (Card c : hand){
             if (c.getColor()==faceUpCard.getColor()){//match color first
                 maxCardIndex = hand.indexOf(c);

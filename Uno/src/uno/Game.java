@@ -18,6 +18,11 @@ public class Game {
     int faceColor;
     Card toplay;
     public int playGame (Strategy strat1, Strategy strat2){
+        //stats
+        int winnerIs = -1;
+        int numTurns = 0;
+        int numDrawnCardsP1 = 0;
+        int numDrawnCardsP2 = 0;
         /*
         Set Up
         strat1 draw 7, strat2 draw 7. 
@@ -26,11 +31,13 @@ public class Game {
         for(int start = 0; start < 7; start ++){
             strat1.takeCard(table.drawCard());
             strat2.takeCard(table.drawCard());
+            numDrawnCardsP1 += 7;
+            numDrawnCardsP2 +=7;
         }
         
         table.addToFaceUp(table.drawCard());
         
-        int winnerIs = -1;
+        
         
         //While game is not over
         while(GameOver(strat1, strat2) != true){
@@ -42,7 +49,7 @@ public class Game {
                 if (toplay == null)
                 {
                     Card drawnCard = table.drawCard();
-                    System.out.println("P1 card drawn when no playable card= " + drawnCard);
+                    //System.out.println("P1 card drawn when no playable card= " + drawnCard);
                     strat1.takeCard(drawnCard); //draw card
                     playerturn = 2;
                     
@@ -56,35 +63,39 @@ public class Game {
                         table = new Table(temp);
                         table.addToFaceUp(table.drawCard());
                     }
-                    
+                    numDrawnCardsP1 += 1;
 
                 }
                 
                 else
                 {
                     //check to make sure card is playable. add for wild cards
-                    if (toplay.getColor() == 5 && toplay.getValue() == 14){                        
-                        Draw4Card(strat2);
-                        playerturn = 1;
+                    if (toplay.getColor() == 5){
+                        if (toplay.getValue() == 14){
+                            Draw4Card(strat2);
+                            playerturn = 1;
+                            numDrawnCardsP2 += 4;
+                        }
                     }
                 
                     //if wild card: behavior
                 
                     //then this next if is an elif so it is part of the whole if block?
-                    else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
+                    else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue() || toplay.getColor() == 5)
                         System.out.println("Exception: card doesn't match: " + toplay.getColor()+ " " + toplay.getValue() + " "+ table.topUp().getColor()+ " "+ table.topUp().getValue()); // Not sure but won't this fire with all wild cards because the color and value won't match?
                         //do we want the above to be a true exception thrown or keep it a print so we know it happened?
                 
                 
                     //can these be played when the colors don't match?
-                    System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
-                    System.out.println("Player 1 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
+                    //System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
+                    //System.out.println("Player 1 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
                 
                     if(toplay.getValue() == 12)
                     {
                         Draw2Card(strat2);
                         //current rule same player
-                        playerturn = 1;                
+                        playerturn = 1;
+                        numDrawnCardsP2 += 2;
                     } 
                 
                     else if (toplay.getValue() == 10)
@@ -101,13 +112,16 @@ public class Game {
                 
                     if(table.topUp().getColor() == 5) //card was legal and is a wild
                     {
-                        System.out.print("Wild is being played.");
                         table.topUp().setColor(strat1.chooseColor()); //set the color of the wild card strat1's choosing
                     }
                 
                 }
                 if(strat1.getHandSize() == 0){ //check to see if player 1 has won 
                     winnerIs = 1;
+                    System.out.println("Total turns played (each player goes once): " + numTurns);
+                    System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
+                    System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
+                    System.out.println("Total number of cards drawn: " + (numDrawnCardsP1 + numDrawnCardsP2));
                     System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
                     return winnerIs;
                 }
@@ -130,7 +144,7 @@ public class Game {
                 //if cannot play card
                 if (toplay == null){
                     Card drawnCard = table.drawCard();
-                    System.out.println("P2 card drawn when can't play a card= " + drawnCard);
+                    //System.out.println("P2 card drawn when can't play a card= " + drawnCard);
                     strat2.takeCard(drawnCard); //draw card
                     playerturn = 1;
                     
@@ -144,27 +158,32 @@ public class Game {
                         table = new Table(temp);
                         table.addToFaceUp(table.drawCard());
                     }
+                    numDrawnCardsP2 += 1;
 
                 }
                 
                 else
                 {
                     //check to make sure card is playable. add for wild cards
-                    if (toplay.getColor() == 5 && toplay.getValue() == 14){                       
-                        Draw4Card(strat1);
-                        playerturn = 2;                     
+                    if (toplay.getColor() == 5){
+                        if (toplay.getValue() == 14){
+                            Draw4Card(strat1);
+                            playerturn = 2;
+                            numDrawnCardsP1 += 4;
+                        }
                     }
                 
-                    else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue())
+                    else if (toplay.getColor() != table.topUp().getColor() && toplay.getValue() != table.topUp().getValue()|| toplay.getColor() == 5)
                         System.out.print("Exception: card doesn't match");
                 
-                    System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
-                    System.out.println("Player 2 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
+                    //System.out.println("Table Color: " + table.topUp().getColor() + "  Value:"+ table.topUp().getValue());
+                    //System.out.println("Player 2 Color: " + toplay.getColor() + "  Value:"+ toplay.getValue());
                 
                     if (toplay.getValue() == 12){
                         Draw2Card(strat1);
                         //current rule same player
-                        playerturn = 2;                
+                        playerturn = 2;
+                        numDrawnCardsP1 += 2;
                     } 
                 
                     else if (toplay.getValue() == 10)
@@ -181,8 +200,7 @@ public class Game {
                     
                 
                     if(table.topUp().getColor() == 5) // played a regular wild
-                    {
-                        System.out.print("Wild is being played.");
+                    {                
                         table.topUp().setColor(strat2.chooseColor()); //wild card becomes color of strat2's choice
                     }
                 }
@@ -202,13 +220,18 @@ public class Game {
                 if(strat2.getHandSize() == 0)
                 { //check to see if player 2 has won now
                     winnerIs = 2;
+                    System.out.println("Total turns played (each player goes once): " + numTurns);
+                    System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
+                    System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
+                    System.out.println("Total number of cards drawn: " + (numDrawnCardsP1 + numDrawnCardsP2));
                     System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
                     return winnerIs;
                 }
+               
         }
-        
-        
+        numTurns += 1;
     }
+        System.out.println("Total turns played (each player goes once): " + numTurns);
         System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
         return winnerIs;
     }
@@ -237,7 +260,7 @@ public class Game {
                 table.addToFaceUp(table.drawCard());
             }
             Card drawnCard = table.drawCard();
-            System.out.println("D2 card = " + drawnCard);
+            //System.out.println("D2 card = " + drawnCard);
             strat.takeCard(drawnCard);//drawCard from deck, we need to acces table here
         }
         //overkill?
@@ -266,7 +289,7 @@ public class Game {
                 table.addToFaceUp(table.drawCard());
             }
             Card drawnCard = table.drawCard();
-            System.out.println("D4 card = " + drawnCard);
+            //System.out.println("D4 card = " + drawnCard);
             strat.takeCard(drawnCard);
         }
         //overkill?
