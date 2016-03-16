@@ -72,7 +72,7 @@ public class PassiveStrategy extends Strategy
                 }
             }
         }
-        System.out.println("Index = " + lowestCardIndex + " and hand size = " + hand.size());
+        //System.out.println("Index = " + lowestCardIndex + " and hand size = " + hand.size());
         return lowestCardIndex; // we want to return the index of the lowest card
     }
     
