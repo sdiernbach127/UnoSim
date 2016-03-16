@@ -6,6 +6,7 @@
 package uno;
 
 import java.util.ArrayList;
+import java.lang.Math;
 
 /**
  *
@@ -30,6 +31,7 @@ public class AggressiveStrategy extends Strategy
         {
             return null; //if there isn't a playable card return null here
         }
+        
         
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);
@@ -78,11 +80,33 @@ public class AggressiveStrategy extends Strategy
             {
                 if(c.getColor() == 5)
                 {
-                    return hand.indexOf(c);
+                    return hand.indexOf(c); //figure out how to say color change
                 }
             }
         }
         return maxCardIndex; //we retunr the index in the hand so we can play the correct card
     }
     
+    public int chooseColor()
+    {
+        
+        int[] colors = new int[5];
+        int color = 0; //set color we have the most of to 0
+        
+        for(Card c: hand)
+        {
+            colors[c.getColor()] += 1;
+        }
+            
+        for(int i = 1; i < 5; i++)
+        {
+            if(colors[i] > color)
+            {
+                color = i; // color is the index, colors[i] is the amount of occurences of that color
+            }
+        }
+        
+        return color;                
+        
+    }
 }
