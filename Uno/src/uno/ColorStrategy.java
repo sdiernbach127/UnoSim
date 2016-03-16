@@ -6,6 +6,7 @@
 package uno;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -71,7 +72,7 @@ public class ColorStrategy extends Strategy
     
     public int chooseColor()
     {
-        
+        Random rand = new Random();
         int[] colors = new int[6];
         int color = 0; //set color we have the most of to 0
         
@@ -87,7 +88,8 @@ public class ColorStrategy extends Strategy
                 color = i; // color is the index, colors[i] is the amount of occurences of that color
             }
         }
-        
+        if (color == 0)
+            color = rand.nextInt(4) + 1;
         return color;                
         
     }
