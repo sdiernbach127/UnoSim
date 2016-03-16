@@ -43,7 +43,7 @@ public class PassiveStrategy extends Strategy
     {
         int lowestCardIndex = -1;
         int lowestCardValue = 100;
-        System.out.println("Hand size = " + hand.size());
+        //System.out.println("Hand size = " + hand.size());
         for(Card c : hand)
         {
             //if(c != null)
@@ -90,6 +90,10 @@ public class PassiveStrategy extends Strategy
         
         return color;                
         
+    }
+    
+    public String getStratName(){
+        return "Passive Strategy";
     }
     
 }

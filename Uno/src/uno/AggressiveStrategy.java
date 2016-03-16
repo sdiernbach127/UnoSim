@@ -117,4 +117,7 @@ public class AggressiveStrategy extends Strategy
         return color;                
         
     }
+    public String getStratName(){
+        return "Agressive Strategy";
+    }
 }

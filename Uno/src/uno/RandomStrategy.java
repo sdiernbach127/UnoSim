@@ -140,4 +140,8 @@ public class RandomStrategy extends Strategy
         
     }
     
+    public String getStratName(){
+        return "Random Strategy";
+    }
+    
 }

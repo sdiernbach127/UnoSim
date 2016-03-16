@@ -18,14 +18,14 @@ public class Main
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        int numGames = 100;
+        int numGames = 10000;
 
         Strategy color = new ColorStrategy();
-        Strategy color1 = new ColorStrategy();
+        //Strategy color1 = new ColorStrategy();
         //Strategy color = new AggressiveStrategy();
         //Strategy color1 = new AggressiveStrategy();
         //Strategy color = new PassiveStrategy();
-        //Strategy color1 = new PassiveStrategy();
+        Strategy color1 = new PassiveStrategy();
         //Strategy color = new UnitStrategy();
         //Strategy color1 = new UnitStrategy();
         //Strategy color = new testStrategy();
@@ -43,15 +43,16 @@ public class Main
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
             
-            System.out.println("Strategy " + winner + " wins!");
+            //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
             System.out.println("Here's some Statistics:");
             System.out.println("---------------------------------------------------------------------------");
+            System.out.println("This was a " + color.getStratName() + " vs " + color1.getStratName() + "game, where " + color.getStratName() + " goes first.");
             System.out.println("The number of games played is " + numGames);
             System.out.println("Average turns per game = " + totalTurns/numGames);
-            System.out.println("Player 1's percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
-            System.out.println("Player 2's percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
+            System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
             
 
 

@@ -95,4 +95,8 @@ public class UnitStrategy extends Strategy
         
     }
     
+    public String getStratName(){
+        return "Unit Strategy";
+    }
+    
 }

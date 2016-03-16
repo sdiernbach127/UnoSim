@@ -69,5 +69,7 @@ public class testStrategy extends Strategy
         
         return color;    
     }
-    
+    public String getStratName(){
+        return "Test Strategy";
+    }
 }

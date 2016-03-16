@@ -121,11 +121,11 @@ public class Game {
                 }
                 if(strat1.getHandSize() == 0){ //check to see if player 1 has won 
                     winnerIs = 1;
-                    System.out.println("Total turns played (each player goes once): " + numTurns);
+                    /*System.out.println("Total turns played (each player goes once): " + numTurns);
                     System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
                     System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
                     System.out.println("Total number of cards drawn: " + (numDrawnCardsP1 + numDrawnCardsP2));
-                    System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
+                    System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());*/
                     return winnerIs;
                 }
             }
@@ -223,22 +223,22 @@ public class Game {
                 if(strat2.getHandSize() == 0)
                 { //check to see if player 2 has won now
                     winnerIs = 2;
-                    System.out.println("Total turns played (each player goes once): " + numTurns);
+                    /*System.out.println("Total turns played (each player goes once): " + numTurns);
                     System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
                     System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
                     System.out.println("Total number of cards drawn: " + (numDrawnCardsP1 + numDrawnCardsP2));
-                    System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
+                    System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());*/
                     return winnerIs;
                 }
                
         }
         numTurns += 1;
-        System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
+        /*System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
         System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
         System.out.println("Size of the deck at turn " + numTurns + ": " + table.theDeck.sizeOfDeck());
     }
         System.out.println("Total turns played (each player goes once): " + numTurns);
-        System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
+        System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());*/}
         return winnerIs;
     }
     

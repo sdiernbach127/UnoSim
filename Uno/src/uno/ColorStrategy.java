@@ -93,6 +93,9 @@ public class ColorStrategy extends Strategy
         return color;                
         
     }
+    public String getStratName(){
+        return "Color Strategy";
+    }
     
 }
 
