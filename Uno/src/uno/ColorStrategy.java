@@ -17,29 +17,47 @@ public class ColorStrategy extends Strategy
     
     public Card playCard(Card faceUpCard)
     {
+        //first matching color
+        //anything else
+        int cardColor = faceUpCard.getColor();
+        int cardIndex = determineMax(faceUpCard);
+        
+        if(cardIndex == -1)
+        {
+            return null; //if there isn't a playable card return null here
+        }
+        
+        
+        Card retCard = hand.get(cardIndex);
+        hand.remove(cardIndex);
+        return retCard; // play the card with the higest values
+    }
+    
+    
+    private int determineMax(Card faceUpCard)
+    {
+        int maxCardIndex = -1;
+        int maxCardValue = -1;
+        
         System.out.println("Hand Size: " + hand.size());
-        for(int i = 0; i < hand.size() - 1; i++){
-            if (hand.get(i).getColor()==faceUpCard.getColor()){
-                Card toPlay = hand.get(i);
-                hand.remove(i);
-                return toPlay;
+        for (Card c : hand){
+            if (c.getColor()==faceUpCard.getColor()){//match color first
+                maxCardIndex = hand.indexOf(c);
+                return maxCardIndex;
+            }
+            
+            if(c.getValue() == faceUpCard.getValue()){//match value next
+                maxCardIndex = hand.indexOf(c);
+                return maxCardIndex;
+            }
+            
+            if(c.getColor() == 5){//then do wilds
+                maxCardIndex = hand.indexOf(c);
+                return maxCardIndex;
             }
         }
-        for(int i = 0; i < hand.size() - 1; i++){
-            if (hand.get(i).getValue() == faceUpCard.getValue()){
-                Card toPlay = hand.get(i);
-                hand.remove(i);
-                return toPlay;
-            }
-        }
-        for(int i = 0; i < hand.size() - 1; i++){
-            if (hand.get(i).getValue() == 5){
-                Card toPlay = hand.get(i);
-                hand.remove(i);
-                return toPlay;
-            }
-        }
-        return null;
+        
+        return maxCardIndex;
     }
     
     public void takeCard(Card drawnCard)
@@ -76,3 +94,5 @@ public class ColorStrategy extends Strategy
     }
     
 }
+
+
