@@ -17,12 +17,16 @@ public class Game {
     Table table = new Table(deck);
     int faceColor;
     Card toplay;
+    int numTurns = 0;
+    int numDrawnCardsP1 = 0;
+    int numDrawnCardsP2 = 0;
+    
     public int playGame (Strategy strat1, Strategy strat2){
         //stats
         int winnerIs = -1;
-        int numTurns = 0;
-        int numDrawnCardsP1 = 0;
-        int numDrawnCardsP2 = 0;
+        //int numTurns = 0;
+        //int numDrawnCardsP1 = 0;
+        //int numDrawnCardsP2 = 0;
         /*
         Set Up
         strat1 draw 7, strat2 draw 7. 
@@ -305,4 +309,18 @@ public class Game {
         }
 
     } 
+    public int getNumTurns()
+    {
+        return numTurns;
+    }
+    
+    public int getP1Draws()
+    {
+        return numDrawnCardsP1;
+    }
+    public int getP2Draws()
+    {
+        return numDrawnCardsP2;
+    }
+    
 }

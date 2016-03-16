@@ -14,9 +14,14 @@ public class Main
     public static void main(String[] args)
     {
         int winner;
+        int[] players = new int[3];
+        int totalTurns = 0;
+        int p1TotalDraws = 0;
+        int p2TotalDraws = 0;
+        int numGames = 100;
 
-        //Strategy color = new ColorStrategy();
-        //Strategy color1 = new ColorStrategy();
+        Strategy color = new ColorStrategy();
+        Strategy color1 = new ColorStrategy();
         //Strategy color = new AggressiveStrategy();
         //Strategy color1 = new AggressiveStrategy();
         //Strategy color = new PassiveStrategy();
@@ -25,17 +30,31 @@ public class Main
         //Strategy color1 = new UnitStrategy();
         //Strategy color = new testStrategy();
         //Strategy color1 = new testStrategy();
-        Strategy color = new RandomStrategy();
-        Strategy color1 = new RandomStrategy();
+        //Strategy color = new RandomStrategy();
+        //Strategy color1 = new RandomStrategy();
        
         Game game = new Game();
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < numGames; i++)
         {
             game = new Game();
             winner = game.playGame(color, color1);
+            players[winner] += 1; // add to histogram
+            totalTurns += game.getNumTurns();
+            p1TotalDraws += game.getP1Draws();
+            p2TotalDraws += game.getP2Draws();
+            
             System.out.println("Strategy " + winner + " wins!");
         }
+            System.out.println("\n");
+            System.out.println("Here's some Statistics:");
+            System.out.println("---------------------------------------------------------------------------");
+            System.out.println("The number of games played is " + numGames);
+            System.out.println("Average turns per game = " + totalTurns/numGames);
+            System.out.println("Player 1's percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
+            System.out.println("Player 2's percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            
+
 
     }   
-
+    
 }
