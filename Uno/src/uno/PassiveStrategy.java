@@ -23,7 +23,7 @@ public class PassiveStrategy extends Strategy
         {
             return null;
         }   
-        System.out.println("retIndex = " + cardIndex + " and hand = " + hand.size());
+        //System.out.println("retIndex = " + cardIndex + " and hand = " + hand.size());
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);
         return retCard; // play the lowest card in the hand
