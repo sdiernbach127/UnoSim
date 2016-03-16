@@ -13,13 +13,17 @@ public class Main
 {
     public static void main(String[] args)
     {
+        int winner;
         //Strategy color = new ColorStrategy();
         //Strategy color1 = new ColorStrategy();
-        Strategy color = new AggressiveStrategy();
-        Strategy color1 = new AggressiveStrategy();
+        //Strategy color = new AggressiveStrategy();
+        //Strategy color1 = new AggressiveStrategy();
+        Strategy color = new PassiveStrategy();
+        Strategy color1 = new PassiveStrategy();
         
         Game game = new Game();
-        game.playGame(color1, color1);
+        winner = game.playGame(color1, color1);
+        System.out.println("Strategy " + winner + " wins!");
         
     }
 }

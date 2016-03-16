@@ -17,10 +17,15 @@ public class PassiveStrategy extends Strategy
     
     public Card playCard(Card faceUp)
     {
-        int cardIndex = determineLowestCard();
+        int cardIndex = determineLowestCard(faceUp);
+        if(cardIndex == -1)
+        {
+            return null;
+        }   
+        
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);
-        return hand.get(cardIndex); // play the lowest card in the hand
+        return retCard; // play the lowest card in the hand
     }
     
     public void takeCard(Card drawnCard)
@@ -33,17 +38,38 @@ public class PassiveStrategy extends Strategy
         return hand.size();
     }
     
-    private int determineLowestCard() // does this count as passive?
+    private int determineLowestCard(Card faceUp) // does this count as passive?
     {
-        int lowestCardIndex = 0;
-        int lowestCardValue = 0;
+        int lowestCardIndex = -1;
+        int lowestCardValue = -1;
         
         for(Card c : hand)
         {
-            if(c.getValue() < lowestCardValue)
+            if(c.getColor() == faceUp.getColor() || c.getValue() == faceUp.getValue())
             {
-                lowestCardValue = c.getValue();
-                lowestCardIndex = hand.indexOf(c);
+                if(c.getValue() < lowestCardValue)
+                {
+                    lowestCardValue = c.getValue();
+                    lowestCardIndex = hand.indexOf(c);
+                }
+            }
+        }
+        
+        if(lowestCardIndex == -1)
+        {
+            for(Card c : hand)
+            {
+                if(c.getColor() == 5)
+                {
+                    if(c.getValue() == 0)
+                    {
+                        return hand.indexOf(c); // regular wild
+                    }
+                    else
+                    {
+                        return hand.indexOf(c); //draw 4
+                    }
+                }
             }
         }
         return lowestCardIndex; // we want to return the index of the lowest card

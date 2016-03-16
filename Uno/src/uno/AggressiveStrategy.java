@@ -70,6 +70,7 @@ public class AggressiveStrategy extends Strategy
                 if(c.getValue() > maxCardValue)
                 {
                     maxCardValue = c.getValue(); // if the colors match or values match and we get a max card then go for it
+                    maxCardIndex = hand.indexOf(c);
                 }
             }
         }
