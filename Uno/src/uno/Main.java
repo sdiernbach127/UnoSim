@@ -15,10 +15,10 @@ public class Main
     {
         int winner;
 
-        //Strategy color = new ColorStrategy();
-        //Strategy color1 = new ColorStrategy();
-        Strategy color = new AggressiveStrategy();
-        Strategy color1 = new AggressiveStrategy();
+        Strategy color = new ColorStrategy();
+        Strategy color1 = new ColorStrategy();
+        //Strategy color = new AggressiveStrategy();
+        //Strategy color1 = new AggressiveStrategy();
         //Strategy color = new PassiveStrategy();
         //Strategy color1 = new PassiveStrategy();
         //Strategy color = new UnitStrategy();
