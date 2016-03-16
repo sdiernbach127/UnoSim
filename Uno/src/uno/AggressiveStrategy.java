@@ -41,7 +41,7 @@ public class AggressiveStrategy extends Strategy
 
     public void takeCard(Card drawnCard)
     {
-        System.out.println("drawnCard = " + drawnCard);
+        //System.out.println("drawnCard = " + drawnCard);
         hand.add(drawnCard);
     }
     
@@ -59,9 +59,9 @@ public class AggressiveStrategy extends Strategy
         
         for(Card c:hand)
         {
-            System.out.println(c);
+            //System.out.println(c);
             //System.out.println("c index = " + hand.indexOf(c));
-            System.out.println("hand = " + hand.size());
+            //System.out.println("hand = " + hand.size());
             if(c.getColor() == 5)
             {
                 if(c.getValue() == 14)
