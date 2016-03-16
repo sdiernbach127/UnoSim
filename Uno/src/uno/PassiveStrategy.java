@@ -22,7 +22,7 @@ public class PassiveStrategy extends Strategy
         {
             return null;
         }   
-        
+        System.out.println("retIndex = " + cardIndex + " and hand = " + hand.size());
         Card retCard = hand.get(cardIndex);
         hand.remove(cardIndex);
         return retCard; // play the lowest card in the hand
@@ -72,6 +72,7 @@ public class PassiveStrategy extends Strategy
                 }
             }
         }
+        System.out.println("Index = " + lowestCardIndex + " and hand size = " + hand.size());
         return lowestCardIndex; // we want to return the index of the lowest card
     }
     
@@ -83,6 +84,7 @@ public class PassiveStrategy extends Strategy
         
         for(Card c: hand)
         {
+           //System.out.println(c.getColor());
             colors[c.getColor()] += 1;
         }
             

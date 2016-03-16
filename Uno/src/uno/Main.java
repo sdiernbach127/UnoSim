@@ -22,7 +22,7 @@ public class Main
         Strategy color1 = new PassiveStrategy();
         
         Game game = new Game();
-        winner = game.playGame(color1, color1);
+        winner = game.playGame(color, color1);
         System.out.println("Strategy " + winner + " wins!");
         
     }

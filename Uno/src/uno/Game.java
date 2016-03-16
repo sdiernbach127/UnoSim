@@ -146,13 +146,14 @@ public class Game {
                 }
             }
         }
-        if(strat1.getHandSize() == 0)
+        System.out.println("p1 = " + strat1.getHandSize() + " p2 = " + strat2.getHandSize());
+        if(strat2.getHandSize() == 0)
         {
-            return 1;
+            return 2;
         }
         else
         {
-            return 2;
+            return 1;
         }
     }
     
@@ -160,7 +161,7 @@ public class Game {
         if (strat1.getHandSize() == 0)
             return true;
         if (strat2.getHandSize() == 0)
-            return false;
+            return true;
         else
             return false;
     }
