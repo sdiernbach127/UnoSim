@@ -42,7 +42,7 @@ public class Game {
                 if (toplay == null)
                 {
                     Card drawnCard = table.drawCard();
-                    System.out.println("P1 card = " + drawnCard);
+                    System.out.println("P1 card drawn when no playable card= " + drawnCard);
                     strat1.takeCard(drawnCard); //draw card
                     playerturn = 2;
                     
@@ -63,7 +63,7 @@ public class Game {
                 else
                 {
                     //check to make sure card is playable. add for wild cards
-                    if (toplay.getColor() == 5 && toplay.getValue() == 1){                        
+                    if (toplay.getColor() == 5 && toplay.getValue() == 14){                        
                         Draw4Card(strat2);
                         playerturn = 1;
                     }
@@ -101,6 +101,7 @@ public class Game {
                 
                     if(table.topUp().getColor() == 5) //card was legal and is a wild
                     {
+                        System.out.print("Wild is being played.");
                         table.topUp().setColor(strat1.chooseColor()); //set the color of the wild card strat1's choosing
                     }
                 
@@ -129,7 +130,7 @@ public class Game {
                 //if cannot play card
                 if (toplay == null){
                     Card drawnCard = table.drawCard();
-                    System.out.println("P2 card = " + drawnCard);
+                    System.out.println("P2 card drawn when can't play a card= " + drawnCard);
                     strat2.takeCard(drawnCard); //draw card
                     playerturn = 1;
                     
@@ -138,7 +139,7 @@ public class Game {
                     //in fewer statements
                     if(table.emptyDeck() == true)
                     {
-                        System.out.println("Player 1 emptied the deck");
+                        System.out.println("Player 2 emptied the deck");
                         Deck temp = new Deck(table.takePile());
                         table = new Table(temp);
                         table.addToFaceUp(table.drawCard());
@@ -149,7 +150,7 @@ public class Game {
                 else
                 {
                     //check to make sure card is playable. add for wild cards
-                    if (toplay.getColor() == 5 && toplay.getValue() == 1){                       
+                    if (toplay.getColor() == 5 && toplay.getValue() == 14){                       
                         Draw4Card(strat1);
                         playerturn = 2;                     
                     }
@@ -181,6 +182,7 @@ public class Game {
                 
                     if(table.topUp().getColor() == 5) // played a regular wild
                     {
+                        System.out.print("Wild is being played.");
                         table.topUp().setColor(strat2.chooseColor()); //wild card becomes color of strat2's choice
                     }
                 }

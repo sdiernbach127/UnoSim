@@ -64,7 +64,7 @@ public class AggressiveStrategy extends Strategy
             System.out.println("hand = " + hand.size());
             if(c.getColor() == 5)
             {
-                if(c.getValue() == 1)
+                if(c.getValue() == 14)
                 {
                     maxCardIndex = hand.indexOf(c);
                     return maxCardIndex;
