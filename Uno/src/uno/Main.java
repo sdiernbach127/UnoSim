@@ -23,6 +23,7 @@ public class Main
         colorVersus.ColorVsPassive(numGames);
         colorVersus.ColorVsUnit(numGames);
         colorVersus.ColorVsRandom(numGames);
+        colorVersus.ColorVstestStrategy(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -34,6 +35,7 @@ public class Main
         aggressiveVersus.AggressiveVsPassive(numGames);
         aggressiveVersus.AggressiveVsUnit(numGames);
         aggressiveVersus.AggressiveVsRandom(numGames);
+        aggressiveVersus.AggressiveVstestStrategy(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -45,6 +47,7 @@ public class Main
         passiveVersus.PassiveVsPassive(numGames);
         passiveVersus.PassiveVsUnit(numGames);
         passiveVersus.PassiveVsRandom(numGames);
+        passiveVersus.PassiveVstestStrategy(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -56,6 +59,7 @@ public class Main
         unitVersus.UnitVsPassive(numGames);
         unitVersus.UnitVsUnit(numGames);
         unitVersus.UnitVsRandom(numGames);
+        unitVersus.UnitVstestStrategy(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -67,6 +71,19 @@ public class Main
         randomVersus.RandomVsPassive(numGames);
         randomVersus.RandomVsUnit(numGames);
         randomVersus.RandomVsRandom(numGames);
+        randomVersus.RandomVstestStrategy(numGames);
+        
+        System.out.println("\n");
+        System.out.println("============================================================================");
+        //Random versus all the others 
+        testStrategyVersus testVersus = new testStrategyVersus();
+      
+        testVersus.testStrategyVsColor(numGames);
+        testVersus.testStrategyVsAggressive(numGames);
+        testVersus.testStrategyVsPassive(numGames);
+        testVersus.testStrategyVsUnit(numGames);
+        testVersus.testStrategyVsRandom(numGames);
+        testVersus.testStrategyVstestStrategy(numGames);
     }   
     
 }

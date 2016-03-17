@@ -7,11 +7,11 @@ package uno;
 
 /**
  *
- * @author Spencer
+ * @author Derek
  */
-public class ColorVersus {
-    
-    public void ColorVsColor(int numGames)
+public class testStrategyVersus 
+{
+    public void testStrategyVsColor(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -20,18 +20,8 @@ public class ColorVersus {
         int p2TotalDraws = 0;
         
 
-        Strategy color = new ColorStrategy();
-        Strategy color1 = new ColorStrategy();
-        //Strategy color = new AggressiveStrategy();
-        //Strategy color1 = new AggressiveStrategy();
-        //Strategy color = new PassiveStrategy();
-        //Strategy color1 = new PassiveStrategy();
-        //Strategy color = new UnitStrategy();
-        //Strategy color1 = new UnitStrategy();
-        //Strategy color = new testStrategy();
-        //Strategy color1 = new testStrategy();
-        //Strategy color = new RandomStrategy();
-        //Strategy color1 = new RandomStrategy();
+        Strategy color = new testStrategy();
+        Strategy color1 = new AggressiveStrategy();
        
         Game game = new Game();
         for(int i = 0; i < numGames; i++)
@@ -55,7 +45,7 @@ public class ColorVersus {
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
     }
     
-    public void ColorVsAggressive(int numGames)
+    public void testStrategyVsAggressive(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -63,7 +53,7 @@ public class ColorVersus {
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
       
-        Strategy color = new ColorStrategy(); 
+        Strategy color = new testStrategy(); 
         Strategy color1 = new AggressiveStrategy();
         
        
@@ -89,7 +79,7 @@ public class ColorVersus {
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
     }
     
-    public void ColorVsPassive(int numGames)
+    public void testStrategyVsPassive(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -97,7 +87,7 @@ public class ColorVersus {
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
       
-        Strategy color = new ColorStrategy(); 
+        Strategy color = new testStrategy(); 
         Strategy color1 = new PassiveStrategy();
         
        
@@ -123,7 +113,7 @@ public class ColorVersus {
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
     }
     
-    public void ColorVsUnit(int numGames)
+    public void testStrategyVsUnit(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -132,7 +122,7 @@ public class ColorVersus {
         int p2TotalDraws = 0;
         
 
-        Strategy color = new ColorStrategy();
+        Strategy color = new testStrategy();
         Strategy color1 = new UnitStrategy();
                
         Game game = new Game();
@@ -157,7 +147,7 @@ public class ColorVersus {
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
     }
     
-    public void ColorVsRandom(int numGames)
+    public void testStrategyVsRandom(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -166,7 +156,7 @@ public class ColorVersus {
         int p2TotalDraws = 0;
         
 
-        Strategy color = new ColorStrategy();
+        Strategy color = new testStrategy();
         Strategy color1 = new RandomStrategy();
        
         Game game = new Game();
@@ -190,8 +180,7 @@ public class ColorVersus {
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
     }
-    
-    public void ColorVstestStrategy(int numGames)
+    public void testStrategyVstestStrategy(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -200,7 +189,7 @@ public class ColorVersus {
         int p2TotalDraws = 0;
         
 
-        Strategy color = new ColorStrategy();
+        Strategy color = new testStrategy();
         Strategy color1 = new testStrategy();
        
         Game game = new Game();
