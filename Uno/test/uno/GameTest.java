@@ -18,39 +18,17 @@ import static org.junit.Assert.*;
  */
 public class GameTest {
     
-    public GameTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+    Game gametest = new Game();
 
     /**
      * Test of playGame method, of class Game.
      */
     @org.junit.Test
     public void testPlayGame() {
-        System.out.println("playGame");
-        Strategy strat1 = null;
-        Strategy strat2 = null;
-        Game instance = new Game();
-        int expResult = 0;
-        int result = instance.playGame(strat1, strat2);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Strategy strat1 = new ColorStrategy();
+        Strategy strat2 = new AggressiveStrategy();
+        int winner = gametest.playGame(strat1, strat2);
+        assertEquals(1,2,winner);
     }
 
     /**
