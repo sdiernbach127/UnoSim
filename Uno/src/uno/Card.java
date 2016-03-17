@@ -29,10 +29,11 @@ public class Card
     private int val;
     private int tempclr;
     
-    public Card(int color, int value)
+    public Card(int color, int value, int isWild)
     {
         clr = color;
         val = value;
+        tempclr = isWild;
     }
     
     public int getColor()
@@ -80,6 +81,15 @@ public class Card
     String newstring= (clrSt + " " + valSt);
     return (newstring);
   }
+    
+    public boolean isWild()
+    {
+        if(tempclr == 1)
+        {
+            return true;
+        }
+        return false;
+    }
    
     public void setColor(int color)
     {

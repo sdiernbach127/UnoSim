@@ -60,7 +60,14 @@ public class Deck {
         
         // If there was not an exception in the parse, then we
         // can create the card and add it to the deck.
-        theCards.add(new Card(color, value));
+        if(color == 5)
+        {
+            theCards.add(new Card(color,value,1)); // 1 for wild
+        }
+        else
+        {
+        theCards.add(new Card(color, value, 0)); // 0 for not wild
+        }
       }
     }
     // We catch exceptions here and through a different kind of exception.
@@ -83,6 +90,13 @@ public class Deck {
   public Deck(ArrayList<Card> faceUpPile)
   {
       theCards = faceUpPile;
+      for(Card c: theCards)
+      {
+          if(c.isWild() == true)
+          {
+              c.setColor(5); // remake the cards wild
+          }
+      }
       Collections.shuffle(theCards);
       nextCardIndex = 0;
   }
