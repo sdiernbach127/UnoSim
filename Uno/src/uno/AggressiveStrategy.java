@@ -79,7 +79,7 @@ public class AggressiveStrategy extends Strategy
                 }
             }
         }
-        
+         
         if(maxCardIndex == -1) //if we still didn't find one
         {
             for(Card c: hand)
@@ -89,7 +89,7 @@ public class AggressiveStrategy extends Strategy
                     return hand.indexOf(c); //figure out how to say color change
                 }
             }
-        }
+        } 
         return maxCardIndex; //we retunr the index in the hand so we can play the correct card
     }
     
