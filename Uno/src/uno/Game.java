@@ -62,7 +62,7 @@ public class Game {
                     //in fewer statements
                     if(table.emptyDeck() == true)
                     {
-                        System.out.println("Player 1 emptied the deck");
+                        //System.out.println("Player 1 emptied the deck");
                         Deck temp = new Deck(table.takePile());
                         table = new Table(temp);
                         table.addToFaceUp(table.drawCard());
@@ -135,7 +135,7 @@ public class Game {
             //in fewer statements
             if(table.emptyDeck() == true)
             {
-                System.out.println("Player 1 emptied the deck");
+                //System.out.println("Player 1 emptied the deck");
                 Deck temp = new Deck(table.takePile());
                 table = new Table(temp);
                 table.addToFaceUp(table.drawCard());
@@ -156,7 +156,7 @@ public class Game {
                     //in fewer statements
                     if(table.emptyDeck() == true)
                     {
-                        System.out.println("Player 2 emptied the deck");
+                        //System.out.println("Player 2 emptied the deck");
                         Deck temp = new Deck(table.takePile());
                         table = new Table(temp);
                         table.addToFaceUp(table.drawCard());
@@ -214,7 +214,7 @@ public class Game {
                 //in fewer statements
                 if(table.emptyDeck() == true)
                 {
-                    System.out.println("Player 2 emptied deck");
+                    //System.out.println("Player 2 emptied deck");
                     Deck temp = new Deck(table.takePile());
                     table = new Table(temp);
                     table.addToFaceUp(table.drawCard());
@@ -260,7 +260,7 @@ public class Game {
             //in fewer statements
             if(table.emptyDeck() == true)
             {
-                System.out.println("Player 1 emptied the deck");
+                //System.out.println("Player 1 emptied the deck");
                 Deck temp = new Deck(table.takePile());
                 table = new Table(temp);
                 table.addToFaceUp(table.drawCard());
@@ -273,7 +273,7 @@ public class Game {
         //to catch an empty deck after the fact
         if(table.emptyDeck() == true)
         {
-            System.out.println("Player 1 emptied the deck");
+            //System.out.println("Player 1 emptied the deck");
             Deck temp = new Deck(table.takePile());
             table = new Table(temp);
             table.addToFaceUp(table.drawCard());
@@ -289,7 +289,7 @@ public class Game {
             //in fewer statements
             if(table.emptyDeck() == true)
             {
-                System.out.println("Player 1 emptied the deck");
+                //System.out.println("Player 1 emptied the deck");
                 Deck temp = new Deck(table.takePile());
                 table = new Table(temp);
                 table.addToFaceUp(table.drawCard());
@@ -302,7 +302,7 @@ public class Game {
         //to catch an empty deck after the fact
         if(table.emptyDeck() == true)
         {
-            System.out.println("Player 1 emptied the deck");
+            //System.out.println("Player 1 emptied the deck");
             Deck temp = new Deck(table.takePile());
             table = new Table(temp);
             table.addToFaceUp(table.drawCard());

@@ -96,7 +96,7 @@ public class RandomStrategy extends Strategy
     {
         int lowestCardIndex = -1;
         int lowestCardValue = 100;
-        System.out.println("Hand size = " + hand.size());
+        //System.out.println("Hand size = " + hand.size());
         for(Card c : hand)
         {
             //if(c != null)

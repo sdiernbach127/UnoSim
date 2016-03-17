@@ -39,7 +39,7 @@ public class UnitStrategy extends Strategy
         int maxCardIndex = -1;
         int maxCardValue = -1;
         
-        System.out.println("Hand Size: " + hand.size());
+        //System.out.println("Hand Size: " + hand.size());
         for (Card c : hand){
             if (c.getValue()==faceUpCard.getValue()){//match value first
                 maxCardIndex = hand.indexOf(c);
