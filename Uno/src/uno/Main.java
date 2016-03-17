@@ -94,7 +94,7 @@ public class Main
         ArrayList<Strategy> strats = new ArrayList(3);
         strats.add(new AggressiveStrategy());
         strats.add(new AggressiveStrategy());
-        strats.add(new AggressiveStrategy());
+        strats.add(new PassiveStrategy());
         int[] winnings = new int[3];
         int multiTurns = 0;
         int winner = -1;
@@ -106,10 +106,11 @@ public class Main
             winnings[winner] += 1;
             multiTurns += multiplayer.getNumTurns();
         }
-        
+        int stratIndex = 0;
         for(int wins : winnings)
         {
-            System.out.println("Win percent = " + (double)wins/(double)numGames);
+            System.out.println("Win percent for strategy " + strats.get(stratIndex).getStratName() +" = " + (double)wins/(double)numGames);
+            stratIndex += 1;
         }
         System.out.println("Ave num turns = " + multiTurns/numGames);
     }   
