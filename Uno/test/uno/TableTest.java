@@ -19,78 +19,35 @@ import static org.junit.Assert.*;
  */
 public class TableTest {
     
-    public TableTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+    Deck deck= new Deck("UnoDeck.dat");
+    Table table = new Table(deck);
 
     /**
      * Test of drawCard method, of class Table.
      */
-    @org.junit.Test
+    @Test
     public void testDrawCard() {
-        System.out.println("drawCard");
-        Table instance = null;
-        Card expResult = null;
-        Card result = instance.drawCard();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //we need to make it so Deck doesn't shuffle right when it's created, so we can test a steady deck
     }
 
-    /**
-     * Test of addToFaceUp method, of class Table.
-     */
+    //this tests topUp and addToFaceUp
     @org.junit.Test
     public void testAddToFaceUp() {
-        System.out.println("addToFaceUp");
-        Card card = null;
-        Table instance = null;
-        instance.addToFaceUp(card);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Card testCard = table.drawCard();
+        table.addToFaceUp(testCard);
+        assertEquals(testCard, table.topUp());
     }
 
-    /**
-     * Test of topUp method, of class Table.
-     */
-    @org.junit.Test
-    public void testTopUp() {
-        System.out.println("topUp");
-        Table instance = null;
-        Card expResult = null;
-        Card result = instance.topUp();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of emptyDeck method, of class Table.
      */
     @org.junit.Test
     public void testEmptyDeck() {
-        System.out.println("emptyDeck");
-        Table instance = null;
-        boolean expResult = false;
-        boolean result = instance.emptyDeck();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (int i = 0; i < 108; i++){
+            table.drawCard();
+        }
+        assertEquals(true,table.emptyDeck());
     }
 
     /**
@@ -98,13 +55,12 @@ public class TableTest {
      */
     @org.junit.Test
     public void testTakePile() {
-        System.out.println("takePile");
-        Table instance = null;
-        ArrayList expResult = null;
-        ArrayList result = instance.takePile();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<Card> testCards = new ArrayList<>();
+        for (int i = 0; i < 8; i++){
+            Card addCard = table.drawCard();
+            testCards.add(addCard);
+        }
+        assertEquals(true,testCards.containsAll(table.takePile()));
     }
     
 }
