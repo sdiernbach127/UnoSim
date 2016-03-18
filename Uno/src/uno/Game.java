@@ -20,6 +20,7 @@ public class Game {
     int numTurns = 0;
     int numDrawnCardsP1 = 0;
     int numDrawnCardsP2 = 0;
+    int[] handSums = new int[2];
     
     public int playGame (Strategy strat1, Strategy strat2){
         //stats
@@ -233,6 +234,8 @@ public class Game {
                
         }
         numTurns += 1;
+        handSums[0] += strat1.getHandSize();
+        handSums[1] += strat2.getHandSize();
         /*System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
         System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
         System.out.println("Size of the deck at turn " + numTurns + ": " + table.theDeck.sizeOfDeck());
@@ -323,4 +326,14 @@ public class Game {
         return numDrawnCardsP2;
     }
     
+    // The next two methods return the average hand size for that strategy for the game.
+    public int getP1AvgHand()
+    {
+        return handSums[0]/numTurns;
+    }
+    public int getP2AvgHand()
+    {
+        return handSums[1]/numTurns;
+    }
+        
 }

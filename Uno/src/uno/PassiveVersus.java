@@ -18,7 +18,8 @@ public class PassiveVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new PassiveStrategy();
         Strategy color1 = new AggressiveStrategy();
@@ -32,7 +33,8 @@ public class PassiveVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();             
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -43,6 +45,8 @@ public class PassiveVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);       
     }
     
     public void PassiveVsAggressive(int numGames)
@@ -52,7 +56,8 @@ public class PassiveVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-      
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;      
         Strategy color = new PassiveStrategy(); 
         Strategy color1 = new AggressiveStrategy();
         
@@ -66,7 +71,8 @@ public class PassiveVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();              
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -77,6 +83,8 @@ public class PassiveVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);       
     }
     
     public void PassiveVsPassive(int numGames)
@@ -86,7 +94,8 @@ public class PassiveVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-      
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;      
         Strategy color = new PassiveStrategy(); 
         Strategy color1 = new PassiveStrategy();
         
@@ -100,7 +109,8 @@ public class PassiveVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();             
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -111,6 +121,8 @@ public class PassiveVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);       
     }
     
     public void PassiveVsUnit(int numGames)
@@ -120,7 +132,8 @@ public class PassiveVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new PassiveStrategy();
         Strategy color1 = new UnitStrategy();
@@ -134,7 +147,8 @@ public class PassiveVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();              
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -145,6 +159,8 @@ public class PassiveVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);       
     }
     
     public void PassiveVsRandom(int numGames)
@@ -154,7 +170,8 @@ public class PassiveVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new PassiveStrategy();
         Strategy color1 = new RandomStrategy();
@@ -168,7 +185,8 @@ public class PassiveVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();              
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -179,6 +197,8 @@ public class PassiveVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);       
     }
     public void PassiveVstestStrategy(int numGames)
     {
@@ -187,7 +207,8 @@ public class PassiveVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;       
 
         Strategy color = new PassiveStrategy();
         Strategy color1 = new testStrategy();
@@ -201,7 +222,8 @@ public class PassiveVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();             
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -212,5 +234,7 @@ public class PassiveVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);       
     }
 }

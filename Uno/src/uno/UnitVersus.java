@@ -18,7 +18,8 @@ public class UnitVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new UnitStrategy();
         Strategy color1 = new AggressiveStrategy();
@@ -32,7 +33,8 @@ public class UnitVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();                 
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -43,6 +45,8 @@ public class UnitVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);     
     }
     
     public void UnitVsAggressive(int numGames)
@@ -52,7 +56,8 @@ public class UnitVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-      
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;      
         Strategy color = new UnitStrategy(); 
         Strategy color1 = new AggressiveStrategy();
         
@@ -66,7 +71,8 @@ public class UnitVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();                 
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -77,6 +83,8 @@ public class UnitVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);     
     }
     
     public void UnitVsPassive(int numGames)
@@ -86,7 +94,8 @@ public class UnitVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-      
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;      
         Strategy color = new UnitStrategy(); 
         Strategy color1 = new PassiveStrategy();
         
@@ -100,7 +109,8 @@ public class UnitVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();                 
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -111,6 +121,8 @@ public class UnitVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);     
     }
     
     public void UnitVsUnit(int numGames)
@@ -120,7 +132,8 @@ public class UnitVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new UnitStrategy();
         Strategy color1 = new UnitStrategy();
@@ -134,7 +147,8 @@ public class UnitVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();                 
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -145,6 +159,8 @@ public class UnitVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);     
     }
     
     public void UnitVsRandom(int numGames)
@@ -154,7 +170,8 @@ public class UnitVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new UnitStrategy();
         Strategy color1 = new RandomStrategy();
@@ -168,7 +185,8 @@ public class UnitVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();                
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -179,6 +197,8 @@ public class UnitVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);     
     }
     
     public void UnitVstestStrategy(int numGames)
@@ -188,7 +208,8 @@ public class UnitVersus {
         int totalTurns = 0;
         int p1TotalDraws = 0;
         int p2TotalDraws = 0;
-        
+        int p1AvgHand = 0;
+        int p2AvgHand = 0;        
 
         Strategy color = new UnitStrategy();
         Strategy color1 = new testStrategy();
@@ -202,7 +223,8 @@ public class UnitVersus {
             totalTurns += game.getNumTurns();
             p1TotalDraws += game.getP1Draws();
             p2TotalDraws += game.getP2Draws();
-            
+            p1AvgHand += game.getP1AvgHand();
+            p2AvgHand += game.getP2AvgHand();                 
             //System.out.println("Strategy " + winner + " wins!");
         }
             System.out.println("\n");
@@ -213,5 +235,7 @@ public class UnitVersus {
             System.out.println("Average turns per game = " + totalTurns/numGames);
             System.out.println(color.getStratName() + "'s percentage of wins = " + (double)players[1]/(double)numGames + " with an average of " + p1TotalDraws/numGames + " number of draws per game");
             System.out.println(color1.getStratName() +"'s percentage of wins = " + (double)players[2]/(double)numGames + " with an average of " + p2TotalDraws/numGames + " number of draws per game");
+            System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
+            System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);     
     }
 }
