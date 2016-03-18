@@ -25,11 +25,10 @@ public class Game2
     
     public int playGame (ArrayList<Strategy> strats)
     {
-        
         strategies = strats;
         for(int i = 0; i < strats.size(); i++)
         {
-            turns.add(0);
+            turns.add(0); //initialize turns all players turns to 0
         }
         //stats
         int winnerIs = -1;
@@ -46,8 +45,9 @@ public class Game2
             for(Strategy strat : strategies)
             {
                 strat.takeCard(table.drawCard());
+                turns.set(strategies.indexOf(strat), turns.get(strategies.indexOf(strat)));
             }
-            turns.set(playerturn, turns.get(playerturn) + 1);
+            //turns.set(playerturn, turns.get(playerturn) + 1);
            
         }
         
@@ -164,6 +164,7 @@ public class Game2
             
         
         numTurns += 1;
+        
         /*System.out.println("Player 1 number of cards drawn: " + numDrawnCardsP1);
         System.out.println("Player 2 number of cards drawn: " + numDrawnCardsP2);
         System.out.println("Size of the deck at turn " + numTurns + ": " + table.theDeck.sizeOfDeck());
@@ -315,5 +316,6 @@ public class Game2
     {
         return turns;
     }
+    
     
 }

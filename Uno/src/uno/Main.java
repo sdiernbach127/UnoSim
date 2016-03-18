@@ -92,9 +92,9 @@ public class Main
         System.out.println("\n");
         System.out.println("===========================================================================");
         ArrayList<Strategy> strats = new ArrayList(3);
-        strats.add(new AggressiveStrategy());
-        strats.add(new AggressiveStrategy());
+        strats.add(new UnitStrategy());
         strats.add(new PassiveStrategy());
+        strats.add(new AggressiveStrategy());
         int[] winnings = new int[3];
         int multiTurns = 0;
         int winner = -1;
@@ -112,7 +112,37 @@ public class Main
             System.out.println("Win percent for strategy " + strats.get(stratIndex).getStratName() +" = " + (double)wins/(double)numGames);
             stratIndex += 1;
         }
-        System.out.println("Ave num turns = " + multiTurns/numGames);
+        System.out.println("Avg num turns = " + multiTurns/3/numGames);
+        
+        System.out.println("\n");
+        System.out.println("===========================================================================");
+        ArrayList<Strategy> strats2 = new ArrayList();
+        strats2.add(new UnitStrategy());
+        strats2.add(new PassiveStrategy());
+        strats2.add(new AggressiveStrategy());
+        strats2.add(new UnitStrategy());
+        strats2.add(new ColorStrategy());
+        strats2.add(new testStrategy());
+        
+        winnings = new int[6];
+        multiTurns = 0;
+        winner = -1;
+        
+        for(int i = 0; i < numGames; i ++)
+        {
+            multiplayer = new Game2();
+            winner = multiplayer.playGame(strats2);
+            winnings[winner] += 1;
+            multiTurns += multiplayer.getNumTurns();
+        }
+        stratIndex = 0;
+        for(int wins : winnings)
+        {
+            System.out.println("Win percent for strategy " + strats2.get(stratIndex).getStratName() +" = " + (double)wins/(double)numGames);
+            stratIndex += 1;
+        }
+        System.out.println("Ave num turns = " + multiTurns/6/numGames);
+        
     }   
     
     
