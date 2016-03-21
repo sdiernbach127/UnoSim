@@ -9,9 +9,9 @@ package uno;
  *
  * @author Spencer
  */
-public class AggressiveVersus {
+public class ColemanVersus {
     
-    public void AggressiveVsColor(int numGames)
+    public void ColemanVsColor(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -22,8 +22,8 @@ public class AggressiveVersus {
         int p2AvgHand = 0;
         
 
+        Strategy color = new ColemanStrategy();
         Strategy color1 = new ColorStrategy();
-        Strategy color = new AggressiveStrategy();
        
         Game game = new Game();
         for(int i = 0; i < numGames; i++)
@@ -51,7 +51,7 @@ public class AggressiveVersus {
             System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);
     }
     
-    public void AggressiveVsAggressive(int numGames)
+    public void ColemanVsAggressive(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -61,7 +61,7 @@ public class AggressiveVersus {
         int p1AvgHand = 0;
         int p2AvgHand = 0;
       
-        Strategy color = new AggressiveStrategy(); 
+        Strategy color = new ColemanStrategy(); 
         Strategy color1 = new AggressiveStrategy();
         
        
@@ -90,7 +90,7 @@ public class AggressiveVersus {
             System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);
     }
     
-    public void AggressiveVsPassive(int numGames)
+    public void ColemanVsPassive(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -99,7 +99,7 @@ public class AggressiveVersus {
         int p2TotalDraws = 0;
         int p1AvgHand = 0;
         int p2AvgHand = 0;      
-        Strategy color = new AggressiveStrategy(); 
+        Strategy color = new ColemanStrategy(); 
         Strategy color1 = new PassiveStrategy();
         
        
@@ -128,7 +128,7 @@ public class AggressiveVersus {
             System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);    
     }
     
-    public void AggressiveVsUnit(int numGames)
+    public void ColemanVsUnit(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -138,7 +138,7 @@ public class AggressiveVersus {
         int p1AvgHand = 0;
         int p2AvgHand = 0;        
 
-        Strategy color = new AggressiveStrategy();
+        Strategy color = new ColemanStrategy();
         Strategy color1 = new UnitStrategy();
                
         Game game = new Game();
@@ -166,7 +166,7 @@ public class AggressiveVersus {
             System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);    
     }
     
-    public void AggressiveVsRandom(int numGames)
+    public void ColemanVsRandom(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -176,7 +176,7 @@ public class AggressiveVersus {
         int p1AvgHand = 0;
         int p2AvgHand = 0;        
 
-        Strategy color = new AggressiveStrategy();
+        Strategy color = new ColemanStrategy();
         Strategy color1 = new RandomStrategy();
        
         Game game = new Game();
@@ -203,7 +203,7 @@ public class AggressiveVersus {
             System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
             System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);    
     }
-    public void AggressiveVstestStrategy(int numGames)
+    public void ColemanVstestStrategy(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -213,7 +213,7 @@ public class AggressiveVersus {
         int p1AvgHand = 0;
         int p2AvgHand = 0;       
 
-        Strategy color = new AggressiveStrategy();
+        Strategy color = new ColemanStrategy();
         Strategy color1 = new testStrategy();
        
         Game game = new Game();
@@ -240,7 +240,7 @@ public class AggressiveVersus {
             System.out.println(color.getStratName() + "'s average hand size per game is " + p1AvgHand/numGames);
             System.out.println(color1.getStratName() + "'s average hand size per game is " + p2AvgHand/numGames);    
     }
-    public void AggressiveVsColeman(int numGames)
+    public void ColemanVsColeman(int numGames)
     {
         int winner;
         int[] players = new int[3];
@@ -250,7 +250,7 @@ public class AggressiveVersus {
         int p1AvgHand = 0;
         int p2AvgHand = 0;       
 
-        Strategy color = new AggressiveStrategy();
+        Strategy color = new ColemanStrategy();
         Strategy color1 = new ColemanStrategy();
        
         Game game = new Game();

@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author Derek
  */
-public class AggressiveStrategy extends Strategy
+public class ColemanStrategy extends Strategy
 {
     ArrayList<Card> hand = new ArrayList<>();
 
@@ -52,35 +52,32 @@ public class AggressiveStrategy extends Strategy
     
     private int determineMax(Card faceUpCard)
     {
-        int maxCardIndex = -1;
-        int maxCardValue = -1;
-        
+        int chooseCardIndex = -1;
+    
         
         
         for(Card c:hand)
         {
-            //System.out.println(c);
-            //System.out.println("c index = " + hand.indexOf(c));
-            //System.out.println("hand = " + hand.size());
-            if(c.getColor() == 5)
+             if(c.getColor() == faceUpCard.getColor())
             {
-                if(c.getValue() == 14)
+                if(c.getValue() == 10 | c.getValue() == 11)
                 {
-                    maxCardIndex = hand.indexOf(c);
-                    return maxCardIndex;
+                    chooseCardIndex = hand.indexOf(c);
                 }
-            }
-            if(c.getColor() == faceUpCard.getColor() || c.getValue() == faceUpCard.getValue())
-            {
-                if(c.getValue() > maxCardValue)
+                
+                else if (c.getValue() < 10)
                 {
-                    maxCardValue = c.getValue(); // if the colors match or values match and we get a max card then go for it
-                    maxCardIndex = hand.indexOf(c);
+                    chooseCardIndex = hand.indexOf(c);
+                }
+                
+                else
+                {
+                    chooseCardIndex =  hand.indexOf(c);
                 }
             }
         }
          
-        if(maxCardIndex == -1) //if we still didn't find one
+        if(chooseCardIndex == -1) //if we still didn't find one
         {
             for(Card c: hand)
             {
@@ -90,7 +87,7 @@ public class AggressiveStrategy extends Strategy
                 }
             }
         } 
-        return maxCardIndex; //we retunr the index in the hand so we can play the correct card
+        return chooseCardIndex; //we retunr the index in the hand so we can play the correct card
     }
     
     public int chooseColor()
@@ -118,7 +115,6 @@ public class AggressiveStrategy extends Strategy
         
     }
     public String getStratName(){
-        return "Agressive Strategy";
+        return "Coleman Strategy";
     }
-    
 }

@@ -27,6 +27,7 @@ public class Main
         colorVersus.ColorVsUnit(numGames);
         colorVersus.ColorVsRandom(numGames);
         colorVersus.ColorVstestStrategy(numGames);
+        colorVersus.ColorVsColeman(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -39,6 +40,7 @@ public class Main
         aggressiveVersus.AggressiveVsUnit(numGames);
         aggressiveVersus.AggressiveVsRandom(numGames);
         aggressiveVersus.AggressiveVstestStrategy(numGames);
+        aggressiveVersus.AggressiveVsColeman(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -51,6 +53,7 @@ public class Main
         passiveVersus.PassiveVsUnit(numGames);
         passiveVersus.PassiveVsRandom(numGames);
         passiveVersus.PassiveVstestStrategy(numGames);
+        passiveVersus.PassiveVsColeman(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -63,6 +66,7 @@ public class Main
         unitVersus.UnitVsUnit(numGames);
         unitVersus.UnitVsRandom(numGames);
         unitVersus.UnitVstestStrategy(numGames);
+        unitVersus.UnitVsColeman(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -75,6 +79,7 @@ public class Main
         randomVersus.RandomVsUnit(numGames);
         randomVersus.RandomVsRandom(numGames);
         randomVersus.RandomVstestStrategy(numGames);
+        randomVersus.RandomVsColeman(numGames);
         
         System.out.println("\n");
         System.out.println("============================================================================");
@@ -87,8 +92,22 @@ public class Main
         testVersus.testStrategyVsUnit(numGames);
         testVersus.testStrategyVsRandom(numGames);
         testVersus.testStrategyVstestStrategy(numGames);
+        testVersus.testStrategyVsColeman(numGames);
         
+        System.out.println("\n");
+        System.out.println("============================================================================");
+        //Random versus all the others 
+        ColemanVersus colemanVersus = new ColemanVersus();
+      
+        colemanVersus.ColemanVsColor(numGames);
+        colemanVersus.ColemanVsAggressive(numGames);
+        colemanVersus.ColemanVsPassive(numGames);
+        colemanVersus.ColemanVsUnit(numGames);
+        colemanVersus.ColemanVsRandom(numGames);
+        colemanVersus.ColemanVstestStrategy(numGames);
+        colemanVersus.ColemanVsColeman(numGames);
         
+        /*
         System.out.println("\n");
         System.out.println("===========================================================================");
         ArrayList<Strategy> strats = new ArrayList(3);
@@ -174,7 +193,7 @@ public class Main
         
      
     
-        
+       */ 
     }   
     
     
