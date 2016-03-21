@@ -58,7 +58,8 @@ public class ColemanStrategy extends Strategy
         
         for(Card c:hand)
         {
-             if(c.getColor() == faceUpCard.getColor())
+            
+            if(c.getColor() == faceUpCard.getColor() || c.getValue() == faceUpCard.getValue() && c.getValue() != 5)
             {
                 if(c.getValue() == 10 | c.getValue() == 11)
                 {
